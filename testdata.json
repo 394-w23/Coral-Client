@@ -1,0 +1,14 @@
+{"events": {
+  "thisisauuid122233woohoo": {
+    "creator": "Bob the creator",
+    "name": "Take care of my house",
+    "tasks": {
+      "0": "",
+      "1": {
+        "taskId": "tasiduuid122333woohoo",
+        "title": "water my roses",
+        "isCompleted": false
+      }
+    }
+  }
+}}
