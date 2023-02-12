@@ -1,5 +1,6 @@
 import Task from "../components/Task";
 import { useState } from "react";
+import { Button } from "@material-tailwind/react";
 
 import {
   Card,
@@ -16,9 +17,9 @@ const Event = ({ eventID, eventData }) => {
   const id = 1;
 
   return (
-    <div className="eventClass">
+    <div className="eventClass grid justify-center">
       <Task taskID={id} taskData={currentTaskData}></Task>
-      <button>Next</button>
+      <Button>Next</Button>
     </div>
   );
 };
