@@ -11,7 +11,7 @@ import {
 import Navigation from "../components/Navigation/Navigation";
 
 const Event = ({ eventID, eventData }) => {
-  console.log(eventData.tasks);
+  // console.log(eventData.tasks);
 
   const handleClickNext = () => {
     if (task != eventData.tasks.length - 1){
@@ -21,6 +21,7 @@ const Event = ({ eventID, eventData }) => {
       setNextText("Done")
     }
   };
+  
   const handleClickBack = () => {
     if (task != 0){
       setTask(--task);
