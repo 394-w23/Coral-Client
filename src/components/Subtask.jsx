@@ -7,7 +7,7 @@ import {
 } from "@material-tailwind/react";
 import 'tw-elements';
 
-const Subtask = ({ subtaskData }) => {
+const Subtask = ({ subtaskData, id }) => {
   // const [count, setCount] = useState(0);
 
   const subtaskInfo = subtaskData.additionalInformation;
@@ -17,11 +17,10 @@ const Subtask = ({ subtaskData }) => {
   return (
     <div className="flex justify-center">
       <Card className="w-[70vw] text-centered my-4 border-solid border-2">
-
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item bg-white border border-gray-200">
-              <h2 className="accordion-header mb-0" id="headingOne">
-                <button className="
+        <div className="accordion" id="accordionExample">
+          <div className="accordion-item bg-white border border-gray-200">
+            <h2 className="accordion-header mb-0" id="headingOne">
+              <button className="
         accordion-button
         relative
         flex
@@ -35,19 +34,19 @@ const Subtask = ({ subtaskData }) => {
         rounded-none
         transition
         focus:outline-none
-      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                  aria-controls="collapseOne">
-                  {subtaskTitle}
-                </button>
-              </h2>
-              <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div className="accordion-body py-4 px-5">
-                  {subtaskInfo}
-                </div>
+      " type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${id}`} aria-expanded="true"
+                aria-controls={`collapse${id}`}>
+                {subtaskTitle}
+              </button>
+            </h2>
+            <div id={`collapse${id}`} className="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div className="accordion-body py-4 px-5">
+                {subtaskInfo}
               </div>
             </div>
-            </div>
+          </div>
+        </div>
       </Card>
     </div>
   );

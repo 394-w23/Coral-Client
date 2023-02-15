@@ -22,9 +22,9 @@ const Task = ({ taskID, taskData }) => {
             {taskTitle}
           </Typography>
 
-          <Typography variant="h5" color="blue-gray" className="mb-2">
+          <Typography variant="p" color="blue-gray" className="mb-2">
             {taskSubtasks.map((data, index) =>
-              <Subtask key={index} subtaskData={data}></Subtask>
+              <Subtask key={index} subtaskData={data} id={index}></Subtask>
             )}
           </Typography>
         </CardBody>
