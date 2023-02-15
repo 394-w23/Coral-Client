@@ -5,23 +5,24 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import Subtask from "./Subtask";
-const Task = ({ taskID, taskData }) => {
+
+const Subtask = ({ subtaskID, subtaskData }) => {
   // const [count, setCount] = useState(0);
 
-  const isTaskComplete = taskData.isTaskComplete;
-  const taskTitle = taskData.taskTitle;
-  const taskSubtasks = taskData.substasks;
+  const isSubtaskComplete = subtaskData.isSubtaskComplete;
+  const subtaskTitle = subtaskData.subtaskTitle;
+  const subtaskDescription = subtaskData.subtaskDescription;
 
   return (
     <div className="flex justify-center">
       <Card className="w-[70vw] text-centered my-4 border-solid border-2">
         <CardBody>
           <Typography variant="h2" className="mb-2">
-            {taskData.title}
+            {subtaskTitle}
           </Typography>
 
           <Typography variant="h5" color="blue-gray" className="mb-2">
+            {subtaskDescription}
           </Typography>
         </CardBody>
       </Card>
@@ -29,4 +30,4 @@ const Task = ({ taskID, taskData }) => {
   );
 };
 
-export default Task;
+export default Subtask;
