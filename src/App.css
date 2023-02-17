@@ -44,3 +44,54 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.primary-blue-background {
+  background-color: #074789;
+}
+
+.secondary-blue-background {
+  background-color: #427aa2;
+}
+
+.primary-green-background {
+  background-color: #a5be00;
+}
+
+.secondary-green-background {
+  background-color: #dee74d;
+}
+
+.primary-silver {
+  background-color: #ebf2fa;
+}
+
+.primary-font-small {
+  font-family: "Avenir";
+  font-size: 12px;
+}
+
+.primary-font-medium {
+  font-family: "Avenir";
+  font-size: 16px;
+}
+
+.primary-font-large {
+  font-family: "Avenir";
+  font-size: 32px;
+}
+
+.secondary-font-small {
+  font-family: "Sen";
+  font-size: 12px;
+}
+
+.secondary-font-medium {
+  font-family: "Sen";
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.secondary-font-large {
+  font-family: "Sen";
+  font-size: 32px;
+}
