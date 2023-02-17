@@ -95,7 +95,7 @@ const AddInfo = ({ title }) => {
 
   return (
     <div>
-      <div className="flex ">
+      <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
             <AiOutlinePicture className="icon" />
@@ -113,7 +113,7 @@ const AddInfo = ({ title }) => {
             <>
               <Listbox.Label className="block text-sm font-medium text-gray-700"></Listbox.Label>
               <div className="relative mt-1">
-                <Listbox.Button className="primary-silver relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                <Listbox.Button className="primary-silver relative w-50 cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
                   <span className="flex items-center">
                     <span className="ml-3 block truncate">
                       {dropdownInfo[title].title}
