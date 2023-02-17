@@ -104,7 +104,7 @@ button {
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin: 0px 20px 20px 10px;
+  margin: 0px 20px 20px 20px;
 }
 
 .icon {
@@ -180,3 +180,11 @@ button {
 img {
   margin-bottom: 20px;
 }
+
+/* .info-dropdown-group {
+  display: flex;
+}
+
+.add-info-capsule {
+  width: 100vw;
+} */
