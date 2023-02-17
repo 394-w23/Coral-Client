@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useDbData } from "../utilities/firebase";
 
 import Event from "./pages/Event";
+import CreateCapsule from "./pages/CreateCapsule";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -29,9 +30,15 @@ const App = () => {
       <Routes>
         <Route
           exact
-          path=""
+          path="/removed"
           element={
             <Event eventID="thisisauuid122233woohoo" eventData={eventData} />
+          }
+        ></Route>
+        <Route
+          path="/"
+          element={
+            <CreateCapsule></CreateCapsule>
           }
         ></Route>
       </Routes>
