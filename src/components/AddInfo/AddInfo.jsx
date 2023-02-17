@@ -13,6 +13,8 @@ import { RiHandHeartLine } from "react-icons/ri";
 
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { SlArrowRight } from "react-icons/sl";
+import { CgTemplate } from "react-icons/cg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

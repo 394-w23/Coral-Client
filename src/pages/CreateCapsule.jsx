@@ -23,6 +23,23 @@ const CreateCapsule = ({ eventID, eventData }) => {
       >
         Create your capsule
       </Typography>
+      <div className="templates">
+        <p>Templates</p>
+        <div className="templateWrapper secondary-blue-background">
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Pro
+          </div>
+        </div>
+      </div>
       <AddInfo title={"memories"} />
       <AddInfo title={"tasks"} />
       <AddInfo title={"goodwill"} />
