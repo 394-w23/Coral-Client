@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import {
   Card,
@@ -11,166 +11,182 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { GrNotes } from "react-icons/gr";
 import { RiHandHeartLine } from "react-icons/ri";
 
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { Listbox, Transition } from "@headlessui/react";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 const AddInfo = ({ title }) => {
-  const types = {
-    "memories": ["Add memories", "photos", "videos", "notes"],
-    "tasks": ["Add tasks", "Start new task"],
-    "goodwill": ["Add goodwill", "Donations", "Special Requests"]
-  }
-  const [selected, setSelected] = useState(people[3])
+  const dropdownInfo = {
+    memories: { title: "Add memories", options: ["photos", "videos", "notes"] },
+    tasks: { title: "Add tasks", options: ["Start new task"] },
+    goodwill: {
+      title: "Add goodwill",
+      options: ["Donations", "Special Requests"],
+    },
+  };
+
   const people = [
     {
       id: 1,
-      name: 'Wade Cooper',
+      name: "Wade Cooper",
       avatar:
-        'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 2,
-      name: 'Arlene Mccoy',
+      name: "Arlene Mccoy",
       avatar:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 3,
-      name: 'Devon Webb',
+      name: "Devon Webb",
       avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
     },
     {
       id: 4,
-      name: 'Tom Cook',
+      name: "Tom Cook",
       avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 5,
-      name: 'Tanya Fox',
+      name: "Tanya Fox",
       avatar:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 6,
-      name: 'Hellen Schmidt',
+      name: "Hellen Schmidt",
       avatar:
-        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 7,
-      name: 'Caroline Schultz',
+      name: "Caroline Schultz",
       avatar:
-        'https://images.unsplash.com/photo-1568409938619-12e139227838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1568409938619-12e139227838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 8,
-      name: 'Mason Heaney',
+      name: "Mason Heaney",
       avatar:
-        'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 9,
-      name: 'Claudie Smitham',
+      name: "Claudie Smitham",
       avatar:
-        'https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
     {
       id: 10,
-      name: 'Emil Schaefer',
+      name: "Emil Schaefer",
       avatar:
-        'https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
-  ]
+  ];
+
+  const [selected, setSelected] = useState(people[3]);
 
   return (
     <div>
-      <p>hello</p>
-      {title === "memories" ? <AiOutlinePicture /> : title === "tasks" ? <GrNotes /> : title === "goodwill" ? <RiHandHeartLine /> : ""}
+      <div className="flex ">
+        <div className="circle secondary-green-background center">
+          {title === "memories" ? (
+            <AiOutlinePicture className="icon" />
+          ) : title === "tasks" ? (
+            <GrNotes className="icon" />
+          ) : title === "goodwill" ? (
+            <RiHandHeartLine className="icon" />
+          ) : (
+            ""
+          )}
+        </div>
 
+        <Listbox value={selected} onChange={setSelected}>
+          {({ open }) => (
+            <>
+              <Listbox.Label className="block text-sm font-medium text-gray-700"></Listbox.Label>
+              <div className="relative mt-1">
+                <Listbox.Button className="primary-silver relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                  <span className="flex items-center">
+                    <span className="ml-3 block truncate">
+                      {dropdownInfo[title].title}
+                    </span>
+                  </span>
+                  <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                    <ChevronUpDownIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Listbox.Button>
 
-      <Listbox value={selected} onChange={setSelected}>
-        {({ open }) => (
-          <>
-            <Listbox.Label className="block text-sm font-medium text-gray-700">Assigned to</Listbox.Label>
-            <div className="relative mt-1">
-              <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
-                <span className="flex items-center">
-                  <img src={selected.avatar} alt="" className="h-6 w-6 flex-shrink-0 rounded-full" />
-                  <span className="ml-3 block truncate">{selected.name}</span>
-                </span>
-                <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                  <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                </span>
-              </Listbox.Button>
+                <Transition
+                  show={open}
+                  as={Fragment}
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                    {dropdownInfo[title].options.map((option) => (
+                      <Listbox.Option
+                        key={option}
+                        className={({ active }) =>
+                          classNames(
+                            active
+                              ? "text-white bg-indigo-600"
+                              : "text-gray-900",
+                            "relative cursor-default select-none py-2 pl-3 pr-9"
+                          )
+                        }
+                        value={option}
+                      >
+                        {({ selected, active }) => (
+                          <>
+                            <div className="flex items-center">
+                              <span
+                                className={classNames(
+                                  selected ? "font-semibold" : "font-normal",
+                                  "ml-3 block truncate"
+                                )}
+                              >
+                                {option}
+                              </span>
+                            </div>
 
-              <Transition
-                show={open}
-                as={Fragment}
-                leave="transition ease-in duration-100"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {people.map((person) => (
-                    <Listbox.Option
-                      key={person.id}
-                      className={({ active }) =>
-                        classNames(
-                          active ? 'text-white bg-indigo-600' : 'text-gray-900',
-                          'relative cursor-default select-none py-2 pl-3 pr-9'
-                        )
-                      }
-                      value={person}
-                    >
-                      {({ selected, active }) => (
-                        <>
-                          <div className="flex items-center">
-                            <img src={person.avatar} alt="" className="h-6 w-6 flex-shrink-0 rounded-full" />
-                            <span
-                              className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
-                            >
-                              {person.name}
-                            </span>
-                          </div>
-
-                          {selected ? (
-                            <span
-                              className={classNames(
-                                active ? 'text-white' : 'text-indigo-600',
-                                'absolute inset-y-0 right-0 flex items-center pr-4'
-                              )}
-                            >
-                              <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                            </span>
-                          ) : null}
-                        </>
-                      )}
-                    </Listbox.Option>
-                  ))}
-                </Listbox.Options>
-              </Transition>
-            </div>
-          </>
-        )}
-      </Listbox>
-      
-
-
-
-
-
+                            {selected ? (
+                              <span
+                                className={classNames(
+                                  active ? "text-white" : "text-indigo-600",
+                                  "absolute inset-y-0 right-0 flex items-center pr-4"
+                                )}
+                              >
+                                <CheckIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              </span>
+                            ) : null}
+                          </>
+                        )}
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Transition>
+              </div>
+            </>
+          )}
+        </Listbox>
+      </div>
     </div>
   );
 };
 
 export default AddInfo;
-
-
-
-
