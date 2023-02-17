@@ -19,11 +19,12 @@ const CreateCapsule = ({ eventID, eventData }) => {
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 secondary-font-large"
+        className="mb-2 secondary-font-large header-text"
       >
         Create your capsule
       </Typography>
-      <div className="templates">
+      <img src="public/Screen Shot 2023-02-16 at 8.54.49 PM.png"></img>
+      {/* <div className="templates">
         <p>Templates</p>
         <div className="templateWrapper secondary-blue-background">
           <div className="templateCircle secondary-green-background">
@@ -39,11 +40,11 @@ const CreateCapsule = ({ eventID, eventData }) => {
             Pro
           </div>
         </div>
-      </div>
+      </div> */}
       <AddInfo title={"memories"} />
       <AddInfo title={"tasks"} />
       <AddInfo title={"goodwill"} />
-      <Button>Next</Button>
+      <Button className="primary-blue-background next-button">Next</Button>
       <BottomNavBar></BottomNavBar>
     </div>
   );
