@@ -11,7 +11,7 @@ import { useDbData } from "../utilities/firebase";
 
 import Event from "./pages/Event";
 import CreateCapsule from "./pages/CreateCapsule";
-
+import NewCapsule from "./pages/NewCapsule";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -36,9 +36,15 @@ const App = () => {
           }
         ></Route>
         <Route
-          path="/"
+          path="/createCapsule"
           element={
             <CreateCapsule></CreateCapsule>
+          }
+        ></Route>
+        <Route
+          path="/"
+          element={
+            <NewCapsule></NewCapsule>
           }
         ></Route>
       </Routes>

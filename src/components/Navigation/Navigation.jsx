@@ -6,7 +6,8 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-
+import { GoKebabVertical } from "react-icons/go";
+import {IoIosArrowBack} from "react-icons/io";
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
 
@@ -25,15 +26,18 @@ export default function Example() {
         color="blue-gray"
         className="p-1 font-normal text-white"
       >
-        <a href="#" className="flex items-center">
-          Settings
+        <a href="#" className="kebab">
+          <GoKebabVertical className="icon" />
+        </a>
+        <a href="#" className="arrowBack">
+          <IoIosArrowBack className="icon" />
         </a>
       </Typography>
     </ul>
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 my-4 bg-indigo-500 ">
+    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 my-4 bg-greenPrimary ">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -41,7 +45,7 @@ export default function Example() {
           variant="small"
           className="text-2xl text-white "
         >
-          <span>House Guide</span>
+          <span></span>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <IconButton
