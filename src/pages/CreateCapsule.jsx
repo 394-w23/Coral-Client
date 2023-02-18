@@ -12,6 +12,7 @@ import {
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
 import BottomNavBar from "../components/BottomNavBar";
+import templates from "../../public/templates.png";
 
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
@@ -23,7 +24,7 @@ const CreateCapsule = ({ eventID, eventData }) => {
       >
         Create your capsule
       </Typography>
-      <img src="public/Screen Shot 2023-02-16 at 8.54.49 PM.png"></img>
+      <img src={templates}></img>
       {/* <div className="templates">
         <p>Templates</p>
         <div className="templateWrapper secondary-blue-background">
@@ -41,10 +42,12 @@ const CreateCapsule = ({ eventID, eventData }) => {
           </div>
         </div>
       </div> */}
-      <AddInfo title={"memories"} />
-      <AddInfo title={"tasks"} />
-      <AddInfo title={"goodwill"} />
-      <Button className="primary-blue-background next-button">Next</Button>
+      <div style={{"height": "110vh"}}>
+        <AddInfo title={"memories"} />
+        <AddInfo title={"tasks"} />
+        <AddInfo title={"goodwill"} />
+        <Button className="primary-blue-background next-button">Next</Button>
+      </div>      
       <BottomNavBar></BottomNavBar>
     </div>
   );
