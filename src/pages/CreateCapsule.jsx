@@ -6,17 +6,46 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
+  Typography,
 } from "@material-tailwind/react";
 
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
+import BottomNavBar from "../components/BottomNavBar";
 
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
     <div>
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="mb-2 secondary-font-large header-text"
+      >
+        Create your capsule
+      </Typography>
+      <img src="public/Screen Shot 2023-02-16 at 8.54.49 PM.png"></img>
+      {/* <div className="templates">
+        <p>Templates</p>
+        <div className="templateWrapper secondary-blue-background">
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Free
+          </div>
+          <div className="templateCircle secondary-green-background">
+            Pro
+          </div>
+        </div>
+      </div> */}
       <AddInfo title={"memories"} />
       <AddInfo title={"tasks"} />
       <AddInfo title={"goodwill"} />
+      <Button className="primary-blue-background next-button">Next</Button>
+      <BottomNavBar></BottomNavBar>
     </div>
   );
 };
