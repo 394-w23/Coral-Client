@@ -12,6 +12,7 @@ import { useDbData } from "../utilities/firebase";
 import Event from "./pages/Event";
 import CreateCapsule from "./pages/CreateCapsule";
 import NewCapsule from "./pages/NewCapsule";
+import CapsulePreview from "./pages/CapsulePreview";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -23,30 +24,28 @@ const App = () => {
   if (!data) return <h1>No data found</h1>;
 
   const eventID = "thisisauuid122233woohoo";
-  const eventData = data.events[eventID];
 
   return (
     <Router>
       <Routes>
         <Route
-          exact
-          path="/removed"
-          element={
-            <Event eventID="thisisauuid122233woohoo" eventData={eventData} />
-          }
-        ></Route>
-        <Route
-          path="/createCapsule"
+          path="/"
           element={
             <CreateCapsule></CreateCapsule>
           }
         ></Route>
         <Route
-          path="/"
+          path="/newCapsule"
           element={
             <NewCapsule></NewCapsule>
           }
         ></Route>
+        <Route
+          path="/capsulePreview"
+          element={
+            <CapsulePreview></CapsulePreview>
+          }>
+        </Route>
       </Routes>
     </Router>
   );
