@@ -9,10 +9,11 @@ import {
 } from "@material-tailwind/react";
 import "./NewCapsule/NewCapsule.css";
 import logo from "../../public/new_capsule.png";
-
+import { Link } from 'react-router-dom';
 import Navigation from "../components/Navigation/Navigation";
 import { GoKebabVertical } from "react-icons/go";
 import {IoIosArrowBack} from "react-icons/io";import "../App.css"
+
 const NewCapsule = ({ name }) => {
     return (
         <div>
@@ -44,6 +45,9 @@ const NewCapsule = ({ name }) => {
                     <label class="text-center form-check-label inline-block text-gray-800" for="flexSwitchCheckDefault">activate capsule</label>
                 </div>
             </div>
+            <Link to="/capsulePreview">
+                <Button className="primary-blue-background next-button">Back</Button>
+            </Link>
         </div>
     )
 };

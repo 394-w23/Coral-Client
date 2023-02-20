@@ -8,6 +8,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
@@ -42,12 +43,15 @@ const CreateCapsule = ({ eventID, eventData }) => {
           </div>
         </div>
       </div> */}
-      <div style={{"height": "110vh"}}>
+      <div style={{ "height": "110vh" }}>
         <AddInfo title={"memories"} />
         <AddInfo title={"tasks"} />
         <AddInfo title={"goodwill"} />
-        <Button className="primary-blue-background next-button">Next</Button>
-      </div>      
+        <Link to="/capsulePreview">
+          <Button className="primary-blue-background next-button">Next</Button>
+        </Link>
+
+      </div>
       <BottomNavBar></BottomNavBar>
     </div>
   );
