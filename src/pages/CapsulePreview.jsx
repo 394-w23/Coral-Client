@@ -1,5 +1,4 @@
 import { useState } from "react";
-import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import PreviewCard from "../components/PreviewCard";
 import { Link } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
@@ -11,6 +10,9 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+
+import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
+import pic2 from "../../public/templates.png";
 
 const CapsulePreview = ({}) => {
   return (
@@ -29,18 +31,31 @@ const CapsulePreview = ({}) => {
       >
         Memories
       </Typography>
-      <div>
-        <img src={pic}></img>
+
+      <div className=" h-56 sm:h-64 xl:h-80 2xl:h-96 ">
+        <Carousel>
+          <img
+            src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+            alt="..."
+          />
+          <img
+            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
+            alt="..."
+          />
+          <img
+            src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
+            alt="..."
+          />
+          <img
+            src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
+            alt="..."
+          />
+          <img
+            src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
+            alt="..."
+          />
+        </Carousel>
       </div>
-        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-          <Carousel>
-            <img src={pic} alt="..." />
-            <img src={pic} alt="..." />
-            <img src={pic} alt="..." />
-            <img src={pic} alt="..." />
-            <img src={pic} alt="..." />
-          </Carousel>
-        </div>
 
       <Typography
         variant="h2"
@@ -49,7 +64,7 @@ const CapsulePreview = ({}) => {
       >
         Notes
       </Typography>
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         <PreviewCard
           title="To Mr. John Sanchez"
           description="ilysm"
@@ -58,7 +73,25 @@ const CapsulePreview = ({}) => {
           title="To Maya"
           description="Please please please cancel my Hulu sub or ur disowned"
         ></PreviewCard>
+      </div> */}
+
+      <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
+        <Carousel>
+          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+            <PreviewCard
+              title="To Mr. John Sanchez"
+              description="ilysm"
+            ></PreviewCard>
+          </div>
+          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+            <PreviewCard
+              title="To Maya"
+              description="Please please please cancel my Hulu sub or ur disowned"
+            ></PreviewCard>
+          </div>
+        </Carousel>
       </div>
+
       <Typography
         variant="h2"
         color="blue-gray"
@@ -66,12 +99,24 @@ const CapsulePreview = ({}) => {
       >
         Goodwill
       </Typography>
-      <div className="flex flex-col items-center">
-        <PreviewCard
-          title="Red Cross"
-          description="Donate all my money there please"
-        ></PreviewCard>
+
+      <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
+        <Carousel>
+          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+            <PreviewCard
+              title="Red Cross"
+              description="Donate all my money there please"
+            ></PreviewCard>
+          </div>
+          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+            <PreviewCard
+              title="Goodwill"
+              description="Please donate all my clothes"
+            ></PreviewCard>
+          </div>
+        </Carousel>
       </div>
+
       <Link to="/newCapsule">
         <Button className="primary-blue-background next-button">Next</Button>
       </Link>
