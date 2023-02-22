@@ -13,6 +13,7 @@ import Event from "./pages/Event";
 import CreateCapsule from "./pages/CreateCapsule";
 import NewCapsule from "./pages/NewCapsule";
 import CapsulePreview from "./pages/CapsulePreview";
+import CapsuleGallery from "./pages/CapsuleGallery";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -46,6 +47,10 @@ const App = () => {
             <CapsulePreview></CapsulePreview>
           }>
         </Route>
+        <Route 
+          path="/capsuleGallery"
+          element={<CapsuleGallery></CapsuleGallery>}>
+      </Route>
       </Routes>
     </Router>
   );
