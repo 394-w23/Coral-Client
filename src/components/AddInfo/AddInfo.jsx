@@ -11,6 +11,7 @@ import { GrNotes } from "react-icons/gr";
 import { RiHandHeartLine } from "react-icons/ri";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import AddNoteModal from "../../modals/AddNoteModal";
 // import { SlArrowRight } from "react-icons/sl";
 // import { CgTemplate } from "react-icons/cg";
 
@@ -19,11 +20,14 @@ function classNames(...classes) {
 }
 
 function openModal(option) {
-// TODO: add modal functionality
-};
+  // TODO: add modal functionality
+  // this function will determine which modal state to update (i.e., which openXXXmodal to call)
+}
 
 const AddInfo = ({ title }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [noteModalOpen, setNoteModalOpen] = useState(false);
+  const openNoteModal = () => setNoteModalOpen(true);
+  const closeNoteModal = () => setNoteModalOpen(false);
 
   const dropdownInfo = {
     memories: { title: "Add memories", options: ["Add photos", "Add videos"] },
@@ -36,6 +40,10 @@ const AddInfo = ({ title }) => {
 
   return (
     <div>
+      <AddNoteModal
+        showModal={noteModalOpen}
+        onCloseModal={closeNoteModal}
+      ></AddNoteModal>
       <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
@@ -89,8 +97,9 @@ const AddInfo = ({ title }) => {
                       //   }
                       //   value={option}
                       // >
-                      <Button className="relative cursor-default select-none py-2 pl-3 pr-12 text-gray-500 dropdown-option secondary-green-background"
-                        onClick={openModal(option)}
+                      <Button
+                        className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
+                        onClick={openNoteModal}
                       >
                         {option}
                       </Button>
@@ -123,7 +132,6 @@ const AddInfo = ({ title }) => {
                             ) : null}
                           </>
                         )} */}
-
                   </Listbox.Options>
                 </Transition>
               </div>
