@@ -12,6 +12,7 @@ module.exports = withMT({
     extend: {},
     colors: {
       greenPrimary: "#a5be00",
+      navyPrimary: "#074789",
     },
   },
   plugins: [require("tw-elements/dist/plugin"), require("flowbite/plugin")],
