@@ -47,7 +47,7 @@ const CreateCapsule = ({ eventID, eventData }) => {
       </div> */}
       <div>
         <AddInfo title={"memories"} />
-        <AddInfo title={"tasks"} />
+        <AddInfo title={"notes"} />
         <AddInfo title={"goodwill"} />
 
         <div className="flex justify-center mt-10">

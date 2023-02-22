@@ -47,10 +47,10 @@ const App = () => {
             <CapsulePreview></CapsulePreview>
           }>
         </Route>
-        <Route 
+        <Route
           path="/capsuleGallery"
           element={<CapsuleGallery></CapsuleGallery>}>
-      </Route>
+        </Route>
       </Routes>
     </Router>
   );

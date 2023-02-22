@@ -8,24 +8,30 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import logo from "../../public/new_capsule.png";
+import { Link } from "react-router-dom";
 
 const CapsuleGalleryCard = ({ name }) => {
     return (
         <div>
             <Card className="w-[70vw] text-centered my-4 border-solid border-2">
-                <CardBody>
+                <CardBody className="flex flex-col">
                     <Typography color="blue-gray" className="mb-2 secondary-font-medium">
                         {name}
                     </Typography>
 
                     <img src={logo}></img>
-                
-                    <Button className="primary-blue-background next-button">
-                        Share
-                    </Button>
-                    <Button className="primary-blue-background next-button">
-                        Edit
-                    </Button>
+                    <div className="flex justify-around">
+                        <Button className="primary-blue-background next-button">
+                            Share
+                        </Button>
+                        <Link to="/">
+                            <Button className="primary-blue-background next-button">
+                                Edit
+                            </Button>
+                        </Link>
+
+                    </div>
+
                 </CardBody>
             </Card>
         </div>

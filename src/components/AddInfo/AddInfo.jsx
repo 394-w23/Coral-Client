@@ -1,32 +1,36 @@
 import { Fragment, useState } from "react";
 import { Button } from "@material-tailwind/react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from "@material-tailwind/react";
-
+// import {
+//   Card,
+//   CardHeader,
+//   CardBody,
+//   CardFooter,
+// } from "@material-tailwind/react";
 import { AiOutlinePicture } from "react-icons/ai";
 import { GrNotes } from "react-icons/gr";
 import { RiHandHeartLine } from "react-icons/ri";
-
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { SlArrowRight } from "react-icons/sl";
-import { CgTemplate } from "react-icons/cg";
+// import { SlArrowRight } from "react-icons/sl";
+// import { CgTemplate } from "react-icons/cg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+function openModal(option) {
+// TODO: add modal functionality
+};
+
 const AddInfo = ({ title }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const dropdownInfo = {
-    memories: { title: "Add memories", options: ["photos", "videos", "notes"] },
-    tasks: { title: "Add tasks", options: ["Start new task"] },
+    memories: { title: "Add memories", options: ["Add photos", "Add videos"] },
+    notes: { title: "Add notes", options: ["New note"] },
     goodwill: {
       title: "Add goodwill",
-      options: ["Donations", "Special Requests"],
+      options: ["New goodwill request"],
     },
   };
 
@@ -36,7 +40,7 @@ const AddInfo = ({ title }) => {
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
             <AiOutlinePicture className="icon" />
-          ) : title === "tasks" ? (
+          ) : title === "notes" ? (
             <GrNotes className="icon" />
           ) : title === "goodwill" ? (
             <RiHandHeartLine className="icon" />
@@ -73,19 +77,25 @@ const AddInfo = ({ title }) => {
                 >
                   <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-25 overflow-auto primary-font-small dropdown-options">
                     {dropdownInfo[title].options.map((option) => (
-                      <Listbox.Option
-                        key={option}
-                        className={({ active }) =>
-                          classNames(
-                            active
-                              ? "text-white bg-indigo-600"
-                              : "text-gray-900",
-                            "relative cursor-default select-none py-2 pl-3 pr-9 dropdown-option secondary-green-background"
-                          )
-                        }
-                        value={option}
+                      // <Button
+                      //   key={option}
+                      //   className={({ active }) =>
+                      //     classNames(
+                      //       active
+                      //         ? "text-white bg-indigo-600"
+                      //         : "text-gray-900",
+                      //       "relative cursor-default select-none py-2 pl-3 pr-9 dropdown-option secondary-green-background"
+                      //     )
+                      //   }
+                      //   value={option}
+                      // >
+                      <Button className="relative cursor-default select-none py-2 pl-3 pr-12 text-gray-500 dropdown-option secondary-green-background"
+                        onClick={openModal(option)}
                       >
-                        {({ selected, active }) => (
+                        {option}
+                      </Button>
+                    ))}
+                    {/* {({ selected, active }) => (
                           <>
                             <div className="flex items-center">
                               <span
@@ -97,7 +107,7 @@ const AddInfo = ({ title }) => {
                                 {option}
                               </span>
                             </div>
-
+                            
                             {selected ? (
                               <span
                                 className={classNames(
@@ -112,9 +122,8 @@ const AddInfo = ({ title }) => {
                               </span>
                             ) : null}
                           </>
-                        )}
-                      </Listbox.Option>
-                    ))}
+                        )} */}
+
                   </Listbox.Options>
                 </Transition>
               </div>
