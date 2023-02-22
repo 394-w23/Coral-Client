@@ -15,20 +15,12 @@ import { GoKebabVertical } from "react-icons/go";
 import { IoIosArrowBack } from "react-icons/io";
 import BottomNavBar from "../components/BottomNavBar";
 import "../App.css";
+import TopNavBar from "../components/TopNavBar";
 
 const NewCapsule = ({ name }) => {
   return (
     <div style={{ height: "100vh" }}>
-      <nav className="navCreate">
-        <div className="iconNav">
-          <a href="#" className="kebab">
-            <GoKebabVertical className="icon" />
-          </a>
-          <a href="#" className="arrowBack">
-            <IoIosArrowBack className="icon" />
-          </a>
-        </div>
-      </nav>
+      <TopNavBar />
       <div class="flex justify-center">
         <img
           src={logo}

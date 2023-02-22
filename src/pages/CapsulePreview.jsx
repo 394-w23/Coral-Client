@@ -14,10 +14,12 @@ import BottomNavBar from "../components/BottomNavBar";
 
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
+import TopNavBar from "../components/TopNavBar";
 
 const CapsulePreview = ({}) => {
   return (
-    <div className="background-white" style={{ height: "135vh" }}>
+    <div className="background-white" style={{ height: "145vh" }}>
+      <TopNavBar />
       <Typography
         variant="h1"
         color="blue-gray"

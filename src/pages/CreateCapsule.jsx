@@ -10,27 +10,16 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
-import { GoKebabVertical } from "react-icons/go";
-import { IoIosArrowBack } from "react-icons/io";
-
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
 import BottomNavBar from "../components/BottomNavBar";
+import TopNavBar from "../components/TopNavBar";
 import templates from "../../public/templates.png";
 
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
-    <div className="background-white" style={{ height: "100vh" }}>
-      <nav className="navCreate">
-        <div className="iconNav">
-          <a href="#" className="kebab">
-            <GoKebabVertical className="icon" />
-          </a>
-          <a href="#" className="arrowBack">
-            <IoIosArrowBack className="icon" />
-          </a>
-        </div>
-      </nav>
+    <div className="background-white" style={{ height: "110vh" }}>
+      <TopNavBar />
       <Typography
         variant="h2"
         color="blue-gray"
