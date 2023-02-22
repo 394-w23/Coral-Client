@@ -23,17 +23,20 @@ const CapsulePreview = ({}) => {
         color="blue-gray"
         className="mb-2 secondary-font-large header-text"
       >
-        Your Capsule Summary
+        Your Capsule Preview
       </Typography>
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 secondary-font-large header-text"
+        className="mb-2 primary-font-large header-text"
       >
         Memories
       </Typography>
 
-      <div className=" h-56 sm:h-64 xl:h-80 2xl:h-96 ">
+      <div
+        className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-y-clip"
+        style={{ "object-fit": "cover" }}
+      >
         <Carousel>
           <img
             src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
@@ -61,7 +64,7 @@ const CapsulePreview = ({}) => {
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 secondary-font-large header-text"
+        className="mb-2 primary-font-large header-text"
       >
         Notes
       </Typography>
@@ -78,13 +81,13 @@ const CapsulePreview = ({}) => {
 
       <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+          <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
             <PreviewCard
               title="To Mr. John Sanchez"
               description="ilysm"
             ></PreviewCard>
           </div>
-          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+          <div className="flex h-full items-center justify-center secondary-green-background dark:text-white">
             <PreviewCard
               title="To Maya"
               description="Please please please cancel my Hulu sub or ur disowned"
@@ -96,20 +99,20 @@ const CapsulePreview = ({}) => {
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 secondary-font-large header-text"
+        className="mb-2 primary-font-large header-text"
       >
         Goodwill
       </Typography>
 
       <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+          <div className="flex h-full items-center justify-center secondary-green-background  dark:text-white">
             <PreviewCard
               title="Red Cross"
               description="Donate all my money there please"
             ></PreviewCard>
           </div>
-          <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+          <div className="flex h-full items-center justify-center secondary-green-background  dark:text-white">
             <PreviewCard
               title="Goodwill"
               description="Please donate all my clothes"
@@ -125,7 +128,7 @@ const CapsulePreview = ({}) => {
           <Button className="primary-blue-background next-button">Next</Button>
         </Link>
       </div>
-      
+
       <BottomNavBar></BottomNavBar>
     </div>
   );

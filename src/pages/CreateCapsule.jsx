@@ -10,6 +10,9 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
+import { GoKebabVertical } from "react-icons/go";
+import { IoIosArrowBack } from "react-icons/io";
+
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
 import BottomNavBar from "../components/BottomNavBar";
@@ -18,6 +21,16 @@ import templates from "../../public/templates.png";
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
     <div className="background-white" style={{ height: "100vh" }}>
+      <nav className="navCreate">
+        <div className="iconNav">
+          <a href="#" className="kebab">
+            <GoKebabVertical className="icon" />
+          </a>
+          <a href="#" className="arrowBack">
+            <IoIosArrowBack className="icon" />
+          </a>
+        </div>
+      </nav>
       <Typography
         variant="h2"
         color="blue-gray"
@@ -47,9 +60,14 @@ const CreateCapsule = ({ eventID, eventData }) => {
         <AddInfo title={"memories"} />
         <AddInfo title={"tasks"} />
         <AddInfo title={"goodwill"} />
-        <Link to="/capsulePreview">
-          <Button className="primary-blue-background next-button">Next</Button>
-        </Link>
+
+        <div className="flex justify-center mt-10">
+          <Link to="/capsulePreview">
+            <Button className="primary-blue-background next-button">
+              Next
+            </Button>
+          </Link>
+        </div>
       </div>
       <BottomNavBar></BottomNavBar>
     </div>

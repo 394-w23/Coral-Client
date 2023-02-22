@@ -7,12 +7,12 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 
-const PreviewCard = ({title, description}) => {
+const PreviewCard = ({ title, description }) => {
   return (
     <div>
       <Card className="w-[70vw] text-centered my-4 border-solid border-2">
         <CardBody>
-          <Typography variant="h2" color="blue-gray" className="mb-2">
+          <Typography color="blue-gray" className="mb-2 secondary-font-medium">
             {title}
           </Typography>
 

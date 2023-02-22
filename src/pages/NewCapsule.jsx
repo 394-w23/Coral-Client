@@ -58,9 +58,12 @@ const NewCapsule = ({ name }) => {
           </label>
         </div>
       </div>
-      <Link to="/capsulePreview">
-        <Button className="primary-blue-background next-button">Back</Button>
-      </Link>
+
+      <div className="flex justify-center mt-10">
+        <Link to="/capsulePreview">
+          <Button className="primary-blue-background next-button">Back</Button>
+        </Link>
+      </div>
     </div>
   );
 };
