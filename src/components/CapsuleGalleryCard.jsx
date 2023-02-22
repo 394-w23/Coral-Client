@@ -4,8 +4,10 @@ import {
     CardBody,
     CardFooter,
     Typography,
+    Button,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import logo from "../../public/new_capsule.png";
 
 const CapsuleGalleryCard = ({ name }) => {
     return (
@@ -16,7 +18,7 @@ const CapsuleGalleryCard = ({ name }) => {
                         {name}
                     </Typography>
 
-                    {/* <img src={image}></img> */}
+                    <img src={logo}></img>
                 
                     <Button className="primary-blue-background next-button">
                         Share

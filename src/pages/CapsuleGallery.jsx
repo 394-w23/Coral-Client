@@ -3,7 +3,7 @@ import CapsuleGalleryCard from "../components/CapsuleGalleryCard";
 
 const CapsuleGallery = () => {
   return (
-    <span className="grid gap-4 grid-cols-2">
+    <span className="grid gap-4 grid-cols-1 justify-items-center">
       <CapsuleGalleryCard name="Test1" class="flex justify-center">
         <img
           src={logo}
