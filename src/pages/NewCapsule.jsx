@@ -16,24 +16,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import BottomNavBar from "../components/BottomNavBar";
 import "../App.css";
 import TopNavBar from "../components/TopNavBar";
-
+import ActivateSwitch from "../components/ActivateSwitch/ActivateSwitch";
 
 const NewCapsule = ({ name }) => {
-  let redirect_Page = (ele) => {
-    	
-    // ele.value = 'Redirecting in 5 secs ...';
-    // ele.disabled = true;
-    var base_url = window.location.origin;
-    console.log(base_url);
-    let tID = setTimeout(function () {
 
-  // redirect page.
-        window.location.href = base_url + "/capsuleGallery";
-        
-        window.clearTimeout(tID);		// clear time out.
-        
-    }, 250);	// call function after 5000 milliseconds or 5 seconds
-}
   return (
     <div style={{ height: "100vh" }}>
       <TopNavBar />
@@ -50,23 +36,17 @@ const NewCapsule = ({ name }) => {
         </h1>
         <p class="description">Your capsule of love has been created</p>
       </div>
+      <br />
+      <ActivateSwitch />
+
       <div class="flex justify-center">
-        <div class="container form-check form-switch">
+        <div class="container form-switch">
         {/* <input 
           class="button-center justify-center form-check-input appearance-none w-36  rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" 
           type="checkbox" 
           role="switch" 
           id="flexSwitchCheckDefault" /> */}
-          <Link
-            onClick={redirect_Page}
-          >
-          <input class="button-center justify-center form-check-input appearance-none w-36  rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" 
-            type="checkbox" 
-            role="switch" 
-            id="flexSwitchCheckDefault" />
-          <label class="text-center form-check-label inline-block text-gray-800" for="flexSwitchCheckDefault">activate capsule</label>
 
-          </Link>
         </div>
       </div>
 
