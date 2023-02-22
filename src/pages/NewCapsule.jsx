@@ -19,7 +19,7 @@ import TopNavBar from "../components/TopNavBar";
 import ActivateSwitch from "../components/ActivateSwitch/ActivateSwitch";
 
 const NewCapsule = ({ name }) => {
-
+  
   return (
     <div style={{ height: "100vh" }}>
       <TopNavBar />
@@ -38,17 +38,6 @@ const NewCapsule = ({ name }) => {
       </div>
       <br />
       <ActivateSwitch />
-
-      <div class="flex justify-center">
-        <div class="container form-switch">
-        {/* <input 
-          class="button-center justify-center form-check-input appearance-none w-36  rounded-full float-left h-5 align-top bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" 
-          type="checkbox" 
-          role="switch" 
-          id="flexSwitchCheckDefault" /> */}
-
-        </div>
-      </div>
 
       <div className="flex justify-center mt-10">
         <Link to="/capsulePreview">
