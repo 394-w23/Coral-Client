@@ -180,12 +180,12 @@ button {
   border-radius: 16px;
 }
 
-.next-button {
+/* .next-button {
   display: flex;
   border-radius: 16px;
   margin: 0 auto;
   margin-top: 30px;
-}
+} */
 
 .header-text {
   margin-top: 30px;

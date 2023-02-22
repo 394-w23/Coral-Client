@@ -117,10 +117,15 @@ const CapsulePreview = ({}) => {
           </div>
         </Carousel>
       </div>
-
-      <Link to="/newCapsule">
-        <Button className="primary-blue-background next-button">Next</Button>
-      </Link>
+      <div className="flex justify-evenly mt-10">
+        <Link to="/">
+          <Button className="primary-blue-background back-button">Back</Button>
+        </Link>
+        <Link to="/newCapsule">
+          <Button className="primary-blue-background next-button">Next</Button>
+        </Link>
+      </div>
+      
       <BottomNavBar></BottomNavBar>
     </div>
   );
