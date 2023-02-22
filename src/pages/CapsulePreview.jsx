@@ -10,13 +10,14 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import BottomNavBar from "../components/BottomNavBar";
 
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
 
 const CapsulePreview = ({}) => {
   return (
-    <div>
+    <div className="background-white" style={{ height: "135vh" }}>
       <Typography
         variant="h1"
         color="blue-gray"
@@ -120,6 +121,7 @@ const CapsulePreview = ({}) => {
       <Link to="/newCapsule">
         <Button className="primary-blue-background next-button">Next</Button>
       </Link>
+      <BottomNavBar></BottomNavBar>
     </div>
   );
 };

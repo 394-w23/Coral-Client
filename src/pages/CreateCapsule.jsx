@@ -8,7 +8,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
@@ -17,7 +17,7 @@ import templates from "../../public/templates.png";
 
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
-    <div>
+    <div className="background-white" style={{ height: "100vh" }}>
       <Typography
         variant="h2"
         color="blue-gray"
@@ -43,14 +43,13 @@ const CreateCapsule = ({ eventID, eventData }) => {
           </div>
         </div>
       </div> */}
-      <div style={{ "height": "110vh" }}>
+      <div>
         <AddInfo title={"memories"} />
         <AddInfo title={"tasks"} />
         <AddInfo title={"goodwill"} />
         <Link to="/capsulePreview">
           <Button className="primary-blue-background next-button">Next</Button>
         </Link>
-
       </div>
       <BottomNavBar></BottomNavBar>
     </div>
