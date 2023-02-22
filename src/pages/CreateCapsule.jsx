@@ -18,7 +18,7 @@ import templates from "../../public/templates.png";
 
 const CreateCapsule = ({ eventID, eventData }) => {
   return (
-    <div className="background-white" style={{ height: "110vh" }}>
+    <div className="background-white" style={{ height: "150vh" }}>
       <TopNavBar />
       <Typography
         variant="h2"

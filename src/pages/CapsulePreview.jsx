@@ -18,7 +18,7 @@ import TopNavBar from "../components/TopNavBar";
 
 const CapsulePreview = ({ }) => {
   return (
-    <div className="background-white" style={{ height: "145vh" }}>
+    <div className="background-white" style={{ height: "200vh" }}>
       <TopNavBar />
       <Typography
         variant="h1"
