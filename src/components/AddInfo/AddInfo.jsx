@@ -100,6 +100,7 @@ const AddInfo = ({ title }) => {
                       <Button
                         className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
                         onClick={openNoteModal}
+                        key={option}
                       >
                         {option}
                       </Button>
