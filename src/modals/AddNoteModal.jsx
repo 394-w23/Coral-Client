@@ -8,12 +8,14 @@ const AddNoteModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
   const handleSubmit = () => {
     const title = document.getElementById("add-note-title").value;
     const msg = document.getElementById("add-note-msg").value;
-    console.log(title);
-    console.log(msg);
-    let updatedNotes = capsuleData["notes"];
-    updatedNotes.push({content:msg, title:title});
-    capsuleData["notes"] = updatedNotes;
-    update({["emmalovecapsuleuuid"]:capsuleData});
+    if (title.length != 0 && msg.length != 0) {
+      let updatedNotes = capsuleData["notes"];
+      updatedNotes.push({content:msg, title:title});
+      capsuleData["notes"] = updatedNotes;
+      update({["emmalovecapsuleuuid"]:capsuleData});
+    } else {
+      console.log("Note data not updated");
+    };
   };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>

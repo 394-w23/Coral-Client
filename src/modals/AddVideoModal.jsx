@@ -7,10 +7,14 @@ const AddVideoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
 
   const handleSubmit = () => {
     const url = document.getElementById("add-video-url").value;
-    let updatedVideoLinks = capsuleData["videoLinks"];
-    updatedVideoLinks.push(url);
-    capsuleData["videoLinks"] = updatedVideoLinks;
-    update({ ["emmalovecapsuleuuid"]: capsuleData });
+    if (url.length != 0) {
+      let updatedVideoLinks = capsuleData["videoLinks"];
+      updatedVideoLinks.push(url);
+      capsuleData["videoLinks"] = updatedVideoLinks;
+      update({ ["emmalovecapsuleuuid"]: capsuleData });
+    } else {
+      console.log("Video data not updated");
+    }; 
   };
   // const handleSubmit = () => {
   //   const url = document.getElementById("add-video-url").value;

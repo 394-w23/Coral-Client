@@ -7,10 +7,15 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
 
   const handleSubmit = () => {
     const url = document.getElementById("add-photo-url").value;
-    let updatedPhotoLinks = capsuleData["photoLinks"];
-    updatedPhotoLinks.push(url);
-    capsuleData["photoLinks"] = updatedPhotoLinks;
-    update({ ["emmalovecapsuleuuid"]: capsuleData });
+    if (url.length != 0) {
+      let updatedPhotoLinks = capsuleData["photoLinks"];
+      updatedPhotoLinks.push(url);
+      capsuleData["photoLinks"] = updatedPhotoLinks;
+      update({ ["emmalovecapsuleuuid"]: capsuleData });
+    } else {
+      console.log("Photo data not updated");
+    };
+
   };
   
   return (

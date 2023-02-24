@@ -8,10 +8,14 @@ const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) =>
   const handleSubmit = () => {
     const charity = document.getElementById("add-goodwill-charity-name").value;
     const request = document.getElementById("add-goodwill-request").value;
-    let updatedGoodwill = capsuleData["goodwill"];
-    updatedGoodwill.push({ charityName: charity, request: request });
-    capsuleData["goodwill"] = updatedGoodwill;
-    update({ ["emmalovecapsuleuuid"]: capsuleData });
+    if (charity.length != 0 && request.length != 0) {
+      let updatedGoodwill = capsuleData["goodwill"];
+      updatedGoodwill.push({ charityName: charity, request: request });
+      capsuleData["goodwill"] = updatedGoodwill;
+      update({ ["emmalovecapsuleuuid"]: capsuleData });
+    } else {
+      console.log("Goodwill data not updated");
+    };
   };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
