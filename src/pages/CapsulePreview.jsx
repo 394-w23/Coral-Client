@@ -18,7 +18,7 @@ import TopNavBar from "../components/TopNavBar";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
   console.log("Checking data: ", capsuleData);
-
+  console.log(capsuleData.photoLinks.slice(1));
   const capsulePhotos = capsuleData.photoLinks.slice(1);
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
