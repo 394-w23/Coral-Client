@@ -59,7 +59,7 @@ const AddInfo = ({ title }) => {
     if (option === "New note") {
       openNoteModal();
     }
-    if (option === "New goodwill request") {
+    if (option === "New goodwill request") {    
       openGoodwillModal();
     }
     if (option === "Add videos") {
@@ -76,6 +76,8 @@ const AddInfo = ({ title }) => {
         showModal={photoModal}
         onCloseModal={closePhotoModal}
       ></AddPhotoModal>
+      <AddGoodwillModal showModal={goodwillModal} onCloseModal={closeGoodwillModal} />
+      <AddVideoModal showModal={videoModal} onCloseModal={closeVideoModal} />
       <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
@@ -131,7 +133,7 @@ const AddInfo = ({ title }) => {
                       // >
                       <Button
                         className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
-                        onClick={openModal(option)}
+                        onClick={() => openModal(option)}
                         key={option}
                       >
                         {option}
