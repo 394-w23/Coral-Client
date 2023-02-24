@@ -1,0 +1,22 @@
+{
+  "capsules": {
+    <uuid>: {
+      "name": <str>,
+      "template": <str: death, love>,
+      "shareLink": <str>,
+      "photoLinks": <Arr: str>,
+      "videoLinks": <Arr: str>,
+      "notes": <Arr: obj: {title: <str>, content: <str>}>,
+      "goodwill": <Arr: obj: {chartiyName: <str>, request: <str>}>,
+    }
+  },
+  },
+  "users": {
+    <uuid>: {
+      "name": "John Doe",
+      "email": <str>,
+      "password": <str>,
+      "phoneNumber": <int>
+  }
+}
+
