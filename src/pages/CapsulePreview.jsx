@@ -18,6 +18,11 @@ import TopNavBar from "../components/TopNavBar";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
   console.log("Checking data: ", capsuleData);
+
+  const capsulePhotos = capsuleData.photoLinks.slice(1);
+  const capsuleNotes = capsuleData.notes.slice(1);
+  const capsuleGoodwill = capsuleData.goodwill.slice(1);
+
   return (
     <div className="background-white" style={{ height: "200vh" }}>
       <TopNavBar />
@@ -37,30 +42,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-y-clip"
+        className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden"
         style={{ "object-fit": "cover" }}
       >
         <Carousel>
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-            alt="..."
-          />
+          {capsulePhotos.map((url) => {
+            return <img src={url} key={url}></img>;
+          })}
         </Carousel>
       </div>
 
@@ -82,20 +70,18 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         ></PreviewCard>
       </div> */}
 
-      <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="h-80 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
-            <PreviewCard
-              title="To Mr. John Sanchez"
-              description="ilysm"
-            ></PreviewCard>
-          </div>
-          <div className="flex h-full items-center justify-center secondary-green-background dark:text-white">
-            <PreviewCard
-              title="To Maya"
-              description="Please please please cancel my Hulu sub or ur disowned"
-            ></PreviewCard>
-          </div>
+          {capsuleNotes.map((note) => {
+            return (
+              <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+                <PreviewCard
+                  title={note.title}
+                  description={note.content}
+                ></PreviewCard>
+              </div>
+            );
+          })}
         </Carousel>
       </div>
 
@@ -107,22 +93,21 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         Goodwill
       </Typography>
 
-      <div className="h-64 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="h-96 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          <div className="flex h-full items-center justify-center secondary-green-background  dark:text-white">
-            <PreviewCard
-              title="Red Cross"
-              description="Donate all my money there please"
-            ></PreviewCard>
-          </div>
-          <div className="flex h-full items-center justify-center secondary-green-background  dark:text-white">
-            <PreviewCard
-              title="Goodwill"
-              description="Please donate all my clothes"
-            ></PreviewCard>
-          </div>
+          {capsuleGoodwill.map((goodwill) => {
+            return (
+              <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+                <PreviewCard
+                  title={goodwill.charityName}
+                  description={goodwill.request}
+                ></PreviewCard>
+              </div>
+            );
+          })}
         </Carousel>
       </div>
+
       <div className="flex justify-evenly mt-10">
         <Link to="/">
           <Button className="primary-blue-background back-button">Back</Button>
