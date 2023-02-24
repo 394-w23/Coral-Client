@@ -12,6 +12,9 @@ import { RiHandHeartLine } from "react-icons/ri";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import AddNoteModal from "../../modals/AddNoteModal";
+import AddPhotoModal from "../../modals/AddPhotoModal";
+import AddVideoModal from "../../modals/AddVideoModal";
+import AddGoodwillModal from "../../modals/AddGoodwillModal";
 // import { SlArrowRight } from "react-icons/sl";
 // import { CgTemplate } from "react-icons/cg";
 
@@ -19,16 +22,24 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function openModal(option) {
-  // TODO: add modal functionality
-  // this function will determine which modal state to update (i.e., which openXXXmodal to call)
-}
 
 const AddInfo = ({ title }) => {
+  
   const [noteModalOpen, setNoteModalOpen] = useState(false);
   const openNoteModal = () => setNoteModalOpen(true);
   const closeNoteModal = () => setNoteModalOpen(false);
-
+  //Photo modal logic
+  const [photoModal, setPhotoModal] = useState(false);
+  const openPhotoModal = () => setPhotoModal(true);
+  const closePhotoModal = () => setPhotoModal(false);
+  // Video modal logic
+  const [videoModal, setVideoModal] = useState(false);
+  const openVideoModal = () => setVideoModal(true);
+  const closeVideoModal = () => setVideoModal(false);
+  // Goodwill modal logic
+  const [goodwillModal, setGoodwillModal] = useState(false);
+  const openGoodwillModal = () => setGoodwillModal(true);
+  const closeGoodwillModal = () => setGoodwillModal(false);
   const dropdownInfo = {
     memories: { title: "Add memories", options: ["Add photos", "Add videos"] },
     notes: { title: "Add notes", options: ["New note"] },
@@ -37,13 +48,34 @@ const AddInfo = ({ title }) => {
       options: ["New goodwill request"],
     },
   };
-
+  console.log("modal", noteModalOpen)
+  function openModal(option) {
+    // TODO: add modal functionality
+    // this function will determine which modal state to update (i.e., which openXXXmodal to call)
+    console.log("option", option)
+    if (option === "Add photos") {
+      openPhotoModal();
+    }
+    if (option === "New note") {
+      openNoteModal();
+    }
+    if (option === "New goodwill request") {
+      openGoodwillModal();
+    }
+    if (option === "Add videos") {
+      openVideoModal();
+    }
+  }
   return (
     <div>
       <AddNoteModal
         showModal={noteModalOpen}
         onCloseModal={closeNoteModal}
       ></AddNoteModal>
+      <AddPhotoModal
+        showModal={photoModal}
+        onCloseModal={closePhotoModal}
+      ></AddPhotoModal>
       <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
@@ -99,7 +131,7 @@ const AddInfo = ({ title }) => {
                       // >
                       <Button
                         className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
-                        onClick={openNoteModal}
+                        onClick={openModal(option)}
                         key={option}
                       >
                         {option}
