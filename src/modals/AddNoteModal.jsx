@@ -1,6 +1,14 @@
 import { Modal, Label, TextInput } from "flowbite-react";
+import { Button } from "@material-tailwind/react";
+import { useDbUpdate } from "../../utilities/firebase";
+
 
 const AddNoteModal = ({ showModal, onCloseModal }) => {
+  const handleSubmit = () => {
+    const title = document.getElementById("add-note-title").value;
+    const msg = document.getElementById("add-note-msg").value;
+    
+  };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -13,13 +21,18 @@ const AddNoteModal = ({ showModal, onCloseModal }) => {
             <div className="mb-2 block">
               <Label htmlFor="title" value="Title" />
             </div>
-            <TextInput id="title" placeholder="" required={true} />
+            <TextInput id="add-note-title" placeholder="" required={true} />
           </div>
           <div>
             <div className="mb-2 block">
               <Label htmlFor="message" value="Your message" />
             </div>
-            <TextInput id="message" required={true} />
+            <TextInput id="add-note-msg" required={true} />
+          </div>
+          <div>
+            <Button onClick={handleSubmit}>
+              Upload
+            </Button>
           </div>
         </div>
       </Modal.Body>
