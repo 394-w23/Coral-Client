@@ -2,12 +2,18 @@ import { Modal, Label, TextInput } from "flowbite-react";
 import { Button } from "@material-tailwind/react";
 import { useDbUpdate } from "../../utilities/firebase";
 
+const AddNoteModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+  const [update] = useDbUpdate(`/capsules/`);
 
-const AddNoteModal = ({ showModal, onCloseModal }) => {
   const handleSubmit = () => {
     const title = document.getElementById("add-note-title").value;
     const msg = document.getElementById("add-note-msg").value;
-    
+    console.log(title);
+    console.log(msg);
+    let updatedNotes = capsuleData["notes"];
+    updatedNotes.push({content:msg, title:title});
+    capsuleData["notes"] = updatedNotes;
+    update({["emmalovecapsuleuuid"]:capsuleData});
   };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>

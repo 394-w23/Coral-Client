@@ -1,6 +1,21 @@
 import { Modal, Label, TextInput } from "flowbite-react";
+import { Button } from "@material-tailwind/react";
+import { useDbUpdate } from "../../utilities/firebase";
 
-const AddVideoModal = ({ showModal, onCloseModal }) => {
+const AddVideoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+  const [update] = useDbUpdate(`/capsules/`);
+
+  const handleSubmit = () => {
+    const url = document.getElementById("add-video-url").value;
+    let updatedVideoLinks = capsuleData["videoLinks"];
+    updatedVideoLinks.push(url);
+    capsuleData["videoLinks"] = updatedVideoLinks;
+    update({ ["emmalovecapsuleuuid"]: capsuleData });
+  };
+  // const handleSubmit = () => {
+  //   const url = document.getElementById("add-video-url").value;
+  //   writeDbVideo(url, data);
+  // };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -11,15 +26,14 @@ const AddVideoModal = ({ showModal, onCloseModal }) => {
           </h3>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="title" value="Title" />
+              <Label htmlFor="videoUrl" value="Add video url" />
             </div>
-            <TextInput id="title" placeholder="" required={true} />
+            <TextInput id="add-video-url" placeholder="" required={true} />
           </div>
           <div>
-            <div className="mb-2 block">
-              <Label htmlFor="message" value="Your message" />
-            </div>
-            <TextInput id="message" required={true} />
+            <Button onClick={handleSubmit}>
+              Upload
+            </Button>
           </div>
         </div>
       </Modal.Body>

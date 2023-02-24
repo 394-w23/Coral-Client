@@ -1,6 +1,18 @@
 import { Modal, Label, TextInput } from "flowbite-react";
+import { Button } from "@material-tailwind/react";
+import { useDbUpdate } from "../../utilities/firebase";
 
-const AddGoodwillModal = ({ showModal, onCloseModal }) => {
+const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+  const [update] = useDbUpdate(`/capsules/`);
+
+  const handleSubmit = () => {
+    const charity = document.getElementById("add-goodwill-charity-name").value;
+    const request = document.getElementById("add-goodwill-request").value;
+    let updatedGoodwill = capsuleData["goodwill"];
+    updatedGoodwill.push({ charityName: charity, request: request });
+    capsuleData["goodwill"] = updatedGoodwill;
+    update({ ["emmalovecapsuleuuid"]: capsuleData });
+  };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -11,15 +23,20 @@ const AddGoodwillModal = ({ showModal, onCloseModal }) => {
           </h3>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="title" value="Title" />
+              <Label htmlFor="charityName" value="Charity Name" />
             </div>
-            <TextInput id="title" placeholder="" required={true} />
+            <TextInput id="add-goodwill-charity-name" placeholder="" required={true} />
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="message" value="Your message" />
+              <Label htmlFor="request" value="Your request" />
             </div>
-            <TextInput id="message" required={true} />
+            <TextInput id="add-goodwill-request" required={true} />
+          </div>
+          <div>
+            <Button onClick={handleSubmit}>
+              Upload
+            </Button>
           </div>
         </div>
       </Modal.Body>

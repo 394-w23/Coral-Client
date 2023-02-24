@@ -1,6 +1,18 @@
 import { Modal, Label, TextInput } from "flowbite-react";
+import { Button } from "@material-tailwind/react";
+import { useDbUpdate } from "../../utilities/firebase";
 
-const AddPhotoModal = ({ showModal, onCloseModal }) => {
+const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+  const [update] = useDbUpdate(`/capsules/`);
+
+  const handleSubmit = () => {
+    const url = document.getElementById("add-photo-url").value;
+    let updatedPhotoLinks = capsuleData["photoLinks"];
+    updatedPhotoLinks.push(url);
+    capsuleData["photoLinks"] = updatedPhotoLinks;
+    update({ ["emmalovecapsuleuuid"]: capsuleData });
+  };
+  
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -11,15 +23,14 @@ const AddPhotoModal = ({ showModal, onCloseModal }) => {
           </h3>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="title" value="Title" />
+              <Label htmlFor="imageUrl" value="Add photo url" />
             </div>
-            <TextInput id="title" placeholder="" required={true} />
+            <TextInput id="add-photo-url" placeholder="" required={true} />
           </div>
           <div>
-            <div className="mb-2 block">
-              <Label htmlFor="message" value="Your message" />
-            </div>
-            <TextInput id="message" required={true} />
+            <Button onClick={handleSubmit}>
+              Upload
+            </Button>
           </div>
         </div>
       </Modal.Body>

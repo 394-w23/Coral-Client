@@ -16,7 +16,7 @@ import BottomNavBar from "../components/BottomNavBar";
 import TopNavBar from "../components/TopNavBar";
 import templates from "../../public/templates.png";
 
-const CreateCapsule = ({ eventID, eventData }) => {
+const CreateCapsule = ({ userData, capsuleData }) => {
   return (
     <div className="background-white" style={{ height: "150vh" }}>
       <TopNavBar />
@@ -46,9 +46,9 @@ const CreateCapsule = ({ eventID, eventData }) => {
         </div>
       </div> */}
       <div>
-        <AddInfo title={"memories"} />
-        <AddInfo title={"notes"} />
-        <AddInfo title={"goodwill"} />
+        <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
+        <AddInfo title={"notes"} userData={userData} capsuleData={capsuleData} />
+        <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />
 
         <div className="flex justify-center mt-10">
           <Link to="/capsulePreview">

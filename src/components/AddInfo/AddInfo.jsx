@@ -23,7 +23,7 @@ function classNames(...classes) {
 }
 
 
-const AddInfo = ({ title }) => {
+const AddInfo = ({ title, userData, capsuleData}) => {
   
   const [noteModalOpen, setNoteModalOpen] = useState(false);
   const openNoteModal = () => setNoteModalOpen(true);
@@ -71,13 +71,19 @@ const AddInfo = ({ title }) => {
       <AddNoteModal
         showModal={noteModalOpen}
         onCloseModal={closeNoteModal}
+        userData={userData}
+        capsuleData={capsuleData}
       ></AddNoteModal>
       <AddPhotoModal
         showModal={photoModal}
         onCloseModal={closePhotoModal}
+        userData={userData}
+        capsuleData={capsuleData}
       ></AddPhotoModal>
-      <AddGoodwillModal showModal={goodwillModal} onCloseModal={closeGoodwillModal} />
-      <AddVideoModal showModal={videoModal} onCloseModal={closeVideoModal} />
+      <AddGoodwillModal showModal={goodwillModal} onCloseModal={closeGoodwillModal} userData={userData}
+        capsuleData={capsuleData} />
+      <AddVideoModal showModal={videoModal} onCloseModal={closeVideoModal} userData={userData}
+        capsuleData={capsuleData} />
       <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (

@@ -38,7 +38,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <CreateCapsule></CreateCapsule>
+            <CreateCapsule userData={user} capsuleData={userCapsule}></CreateCapsule>
           }
         ></Route>
         <Route
