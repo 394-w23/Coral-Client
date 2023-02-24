@@ -16,7 +16,8 @@ import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
 
-const CapsulePreview = ({ }) => {
+const CapsulePreview = ({ userData, capsuleData }) => {
+  console.log("Checking data: ", capsuleData);
   return (
     <div className="background-white" style={{ height: "200vh" }}>
       <TopNavBar />

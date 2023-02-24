@@ -25,6 +25,12 @@ const App = () => {
   if (!data) return <h1>No data found</h1>;
 
   const eventID = "thisisauuid122233woohoo";
+  const userID = "useruuidemma";
+  console.log("Data: ", data);
+  const userCapsule = data.capsules.capsuleuuidemmaslovecapsule;
+  const user = data.users.useruuidemma;
+  console.log("User Capsule: ", userCapsule);
+  console.log("User: ", user);
 
   return (
     <Router>
@@ -44,7 +50,7 @@ const App = () => {
         <Route
           path="/capsulePreview"
           element={
-            <CapsulePreview></CapsulePreview>
+            <CapsulePreview userData={user} capsuleData={userCapsule}></CapsulePreview>
           }>
         </Route>
         <Route
