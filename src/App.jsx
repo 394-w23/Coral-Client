@@ -55,7 +55,7 @@ const App = () => {
         </Route>
         <Route
           path="/capsuleGallery"
-          element={<CapsuleGallery></CapsuleGallery>}>
+          element={<CapsuleGallery data={data}></CapsuleGallery>}>
         </Route>
       </Routes>
     </Router>

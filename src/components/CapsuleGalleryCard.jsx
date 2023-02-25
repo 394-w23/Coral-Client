@@ -10,7 +10,7 @@ import { useState } from "react";
 import logo from "../../public/new_capsule.png";
 import { Link } from "react-router-dom";
 
-const CapsuleGalleryCard = ({ name }) => {
+const CapsuleGalleryCard = ({ name, image }) => {
     return (
         <div>
             <Card className="w-[70vw] text-centered my-4 border-solid border-2">
@@ -19,7 +19,7 @@ const CapsuleGalleryCard = ({ name }) => {
                         {name}
                     </Typography>
 
-                    <img src={logo}></img>
+                    <img src={image}></img>
                     <div className="flex justify-around">
                         <Button className="primary-blue-background next-button">
                             Share
