@@ -48,7 +48,7 @@ const AddInfo = ({ title, userData, capsuleData}) => {
       options: ["New goodwill request"],
     },
   };
-  console.log("modal", noteModalOpen)
+  // console.log("modal", noteModalOpen)
   function openModal(option) {
     // TODO: add modal functionality
     // this function will determine which modal state to update (i.e., which openXXXmodal to call)
@@ -125,18 +125,6 @@ const AddInfo = ({ title, userData, capsuleData}) => {
                 >
                   <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-25 overflow-auto primary-font-small dropdown-options">
                     {dropdownInfo[title].options.map((option) => (
-                      // <Button
-                      //   key={option}
-                      //   className={({ active }) =>
-                      //     classNames(
-                      //       active
-                      //         ? "text-white bg-indigo-600"
-                      //         : "text-gray-900",
-                      //       "relative cursor-default select-none py-2 pl-3 pr-9 dropdown-option secondary-green-background"
-                      //     )
-                      //   }
-                      //   value={option}
-                      // >
                       <Button
                         className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
                         onClick={() => openModal(option)}
@@ -145,34 +133,6 @@ const AddInfo = ({ title, userData, capsuleData}) => {
                         {option}
                       </Button>
                     ))}
-                    {/* {({ selected, active }) => (
-                          <>
-                            <div className="flex items-center">
-                              <span
-                                className={classNames(
-                                  selected ? "font-semibold" : "font-normal",
-                                  "ml-3 block truncate"
-                                )}
-                              >
-                                {option}
-                              </span>
-                            </div>
-                            
-                            {selected ? (
-                              <span
-                                className={classNames(
-                                  active ? "text-white" : "text-indigo-600",
-                                  "absolute inset-y-0 right-0 flex items-center pr-4"
-                                )}
-                              >
-                                <CheckIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
-                              </span>
-                            ) : null}
-                          </>
-                        )} */}
                   </Listbox.Options>
                 </Transition>
               </div>

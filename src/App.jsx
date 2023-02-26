@@ -5,16 +5,12 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
 import { useState } from "react";
 import { useDbData } from "../utilities/firebase";
-
-import Event from "./pages/Event";
 import CreateCapsule from "./pages/CreateCapsule";
 import NewCapsule from "./pages/NewCapsule";
 import CapsulePreview from "./pages/CapsulePreview";
 import CapsuleGallery from "./pages/CapsuleGallery";
-import logo from "./logo.svg";
 import "./App.css";
 
 const App = () => {
