@@ -52,7 +52,7 @@ const AddInfo = ({ title, userData, capsuleData}) => {
   function openModal(option) {
     // TODO: add modal functionality
     // this function will determine which modal state to update (i.e., which openXXXmodal to call)
-    console.log("option", option)
+    // console.log("option", option)
     if (option === "Add photos") {
       openPhotoModal();
     }

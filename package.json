@@ -22,7 +22,8 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.1",
     "react-switch": "^7.0.0",
-    "tw-elements": "^1.0.0-alpha13"
+    "tw-elements": "^1.0.0-alpha13",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "@testing-library/react": "^13.3.0",
