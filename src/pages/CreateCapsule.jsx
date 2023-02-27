@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo/AddInfo";
-import BottomNavBar from "../components/BottomNavBar";
 import TopNavBar from "../components/TopNavBar";
 import templates from "../../public/templates.png";
 
@@ -58,7 +57,6 @@ const CreateCapsule = ({ userData, capsuleData }) => {
           </Link>
         </div>
       </div>
-      <BottomNavBar></BottomNavBar>
     </div>
   );
 };

@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation/Navigation";
 import { GoKebabVertical } from "react-icons/go";
 import { IoIosArrowBack } from "react-icons/io";
-import BottomNavBar from "../components/BottomNavBar";
 import "../App.css";
 import TopNavBar from "../components/TopNavBar";
 import ActivateSwitch from "../components/ActivateSwitch/ActivateSwitch";

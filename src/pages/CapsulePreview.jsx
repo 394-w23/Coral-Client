@@ -10,7 +10,6 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import BottomNavBar from "../components/BottomNavBar";
 
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
@@ -117,7 +116,6 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         </Link>
       </div>
 
-      <BottomNavBar></BottomNavBar>
     </div>
   );
 };
