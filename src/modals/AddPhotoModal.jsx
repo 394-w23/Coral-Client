@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Modal, Label, TextInput } from "flowbite-react";
 import { Button } from "@material-tailwind/react";
-import { useDbUpdate } from "../../utilities/firebase";
+import { useDbUpdate, useDbData} from "../../utilities/firebase";
 import validator from 'validator'
 
 const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
   const [update] = useDbUpdate(`/capsules/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
+  const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks"); 
   const handleSubmit = () => {
     const url = document.getElementById("add-photo-url").value;
     if (validator.isURL(url)) {
@@ -24,7 +24,37 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
       console.log("Photo data not updated");
     };
   };
-  
+  const handleUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) {
+      alert("Please upload an image first!");
+    }
+
+    setImageAsFile((imageFile) => file);
+
+    const storageRef = ref(storage, `/files/${file.name}`); 
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        ); // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log("URL: ", url);
+          console.log("Data: ", data);
+          data.push(url);
+          updateDb({ [`/capsules/emmalovecapsuleuuid/photoLinks`]: (data) });
+        });
+      });
+  }
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -42,10 +72,13 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
             <div className="mb-2 block">
               <Label htmlFor="imageUrl" value="Add photo url" />
             </div>
-            <TextInput id="add-photo-url" placeholder="" required={true} />
+            <form>
+              <input type="file">
+              </input>
+            </form>
           </div>
           <div>
-            <Button onClick={handleSubmit} className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background">
+            <Button onClick={handleUpload} className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background">
               Upload
             </Button>
           </div>
