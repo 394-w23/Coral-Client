@@ -10,6 +10,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import DeleteMemoryModal from "../modals/DeleteMemoryModal"; 
 
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
@@ -23,8 +24,31 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
 
+  const [deleteMemoryModal, setDeleteMemoryModal] = useState(false);
+  const openDeleteMemoryModal = () => setDeleteMemoryModal(true);
+  const closeDeleteMemoryModal = () => setDeleteMemoryModal(false);
+
+  const handleDelete = () => {
+    const url = document.querySelector(`[data-active=true]`).querySelector(`[id=currentMemory]`).src;
+    let updatedPhotoLinks = [];
+    for (const photo in capsulePhotos) {
+      if (capsulePhotos[photo] !== url) {
+        updatedPhotoLinks.push(capsulePhotos[photo]);
+      }
+    }
+    //openDeleteMemoryModal();
+    // capsuleData["photoLinks"] = updatedPhotoLinks;
+    // update({ ["emmalovecapsuleuuid"]: capsuleData });
+  };
+
   return (
+    
     <div className="background-white" style={{ height: "200vh" }}>
+      {/* <DeleteMemoryModal
+        showModal={deleteMemoryModal}
+        onCloseModal={closeDeleteMemoryModal}
+        userData={userData}
+        capsuleData={capsuleData} /> */}
       <TopNavBar nextLink={"/newCapsule"} backLink={"/"} />
       <Typography
         variant="h1"
@@ -48,13 +72,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       >
         <Carousel>
           {capsulePhotos.map((url) => {
-            return <img src={url} key={url}></img>;
+            return <img src={url} key={url} id="currentMemory"></img>;
           })}
         </Carousel>
       </div>
       <div className="flex justify-evenly my-1">
-        <Button className="primary-blue-background next-button">
-          Edit memories
+        <Button onClick={handleDelete} className="bg-red-700 next-button">
+          Delete this memory
         </Button>
       </div>
 
