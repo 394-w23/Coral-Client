@@ -1,5 +1,5 @@
 import { GoKebabVertical } from "react-icons/go";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import {
   Menu,
   MenuHandler,
@@ -12,7 +12,7 @@ import { HiSparkles } from "react-icons/hi";
 import { BsQuestionLg } from "react-icons/bs";
 
 
-const TopNavBar = ({ color }) => {
+const TopNavBar = ({ color, nextLink, backLink }) => {
   return (
     <nav className="navCreate py-2">
       <div className="iconNav">
@@ -29,9 +29,15 @@ const TopNavBar = ({ color }) => {
           </MenuList>
         </Menu>
         
-        <a href="#" className="arrowBack">
+        {nextLink && 
+        <a href={`${nextLink}`} className="arrowBack">
+          <IoIosArrowForward className="icon" />
+        </a>}        
+        
+        {backLink && 
+          <a href={`${backLink}`} className="arrowBack">
           <IoIosArrowBack className="icon" />
-        </a>
+        </a>}
       </div>
     </nav>
   );

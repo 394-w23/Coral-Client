@@ -24,7 +24,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
 
   return (
     <div className="background-white" style={{ height: "200vh" }}>
-      <TopNavBar />
+      <TopNavBar nextLink={'/newCapsule'} backLink={'/'} />
       <Typography
         variant="h1"
         color="blue-gray"
@@ -105,15 +105,6 @@ const CapsulePreview = ({ userData, capsuleData }) => {
             );
           })}
         </Carousel>
-      </div>
-
-      <div className="flex justify-evenly mt-10">
-        <Link to="/">
-          <Button className="primary-blue-background back-button">Back</Button>
-        </Link>
-        <Link to="/newCapsule">
-          <Button className="primary-blue-background next-button">Next</Button>
-        </Link>
       </div>
 
     </div>

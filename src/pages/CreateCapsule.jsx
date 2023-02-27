@@ -17,8 +17,8 @@ import templates from "../../public/templates.png";
 
 const CreateCapsule = ({ userData, capsuleData }) => {
   return (
-    <div className="background-white" style={{ height: "150vh" }}>
-      <TopNavBar />
+    <div className="background-white" style={{ height: "120vh" }}>
+      <TopNavBar nextLink={'/capsulePreview'} />
       <Typography
         variant="h2"
         color="blue-gray"
@@ -48,14 +48,7 @@ const CreateCapsule = ({ userData, capsuleData }) => {
         <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
         <AddInfo title={"notes"} userData={userData} capsuleData={capsuleData} />
         <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />
-
-        <div className="flex justify-center mt-10">
-          <Link to="/capsulePreview">
-            <Button className="primary-blue-background next-button">
-              Next
-            </Button>
-          </Link>
-        </div>
+        
       </div>
     </div>
   );

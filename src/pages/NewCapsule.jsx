@@ -21,7 +21,7 @@ const NewCapsule = ({ name }) => {
   
   return (
     <div style={{ height: "100vh" }}>
-      <TopNavBar />
+      <TopNavBar backLink={"/capsulePreview"} />
       <div class="flex justify-center">
         <img
           src={logo}
@@ -36,13 +36,7 @@ const NewCapsule = ({ name }) => {
         <p class="description">Your capsule of love has been created</p>
       </div>
       <br />
-      <ActivateSwitch />
-
-      <div className="flex justify-center mt-10">
-        <Link to="/capsulePreview">
-          <Button className="primary-blue-background next-button">Back</Button>
-        </Link>
-      </div>
+      <ActivateSwitch />      
     </div>
   );
 };
