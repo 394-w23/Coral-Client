@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Modal, Label, TextInput } from "flowbite-react";
 import { Button } from "@material-tailwind/react";
-import { useDbUpdate, useDbData} from "../../utilities/firebase";
-import validator from 'validator'
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useDbUpdate, useDbData } from "../../utilities/firebase";
+import storage from "../../utilities/firebase";
+import validator from "validator";
 
 const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
-  const [update] = useDbUpdate(`/capsules/`);
+  const [update] = useDbUpdate(`/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks"); 
+  const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks");
   const handleSubmit = () => {
     const url = document.getElementById("add-photo-url").value;
     if (validator.isURL(url)) {
@@ -22,18 +24,16 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
       }, 2000);
     } else {
       console.log("Photo data not updated");
-    };
+    }
   };
   const handleUpload = (e) => {
-    const file = e.target.files[0];
+    const file = document.getElementById("add-photo-modal-input").files[0];
 
     if (!file) {
       alert("Please upload an image first!");
     }
 
-    setImageAsFile((imageFile) => file);
-
-    const storageRef = ref(storage, `/files/${file.name}`); 
+    const storageRef = ref(storage, `/files/${file.name}`);
 
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
@@ -48,13 +48,12 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
       () => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log("URL: ", url);
-          console.log("Data: ", data);
           data.push(url);
-          updateDb({ [`/capsules/emmalovecapsuleuuid/photoLinks`]: (data) });
+          update({ [`/capsules/emmalovecapsuleuuid/photoLinks`]: data });
         });
-      });
-  }
+      }
+    );
+  };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
@@ -64,21 +63,26 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
             Upload Photo
           </h3>
           {showSuccessMessage && (
-            <div className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-            <span className="font-medium">Successfully added!</span>
-          </div>
+            <div
+              className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+              role="alert"
+            >
+              <span className="font-medium">Successfully added!</span>
+            </div>
           )}
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="imageUrl" value="Add photo url" />
+              <Label htmlFor="imageUrl" value="Add Photo" />
             </div>
             <form>
-              <input type="file">
-              </input>
+              <input id="add-photo-modal-input" type="file"></input>
             </form>
           </div>
           <div>
-            <Button onClick={handleUpload} className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background">
+            <Button
+              onClick={handleUpload}
+              className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background"
+            >
               Upload
             </Button>
           </div>

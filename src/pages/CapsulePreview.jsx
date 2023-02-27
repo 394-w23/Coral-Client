@@ -25,21 +25,46 @@ const CapsulePreview = ({ userData, capsuleData }) => {
 
   return (
     <div className="background-white" style={{ height: "200vh" }}>
-      <TopNavBar nextLink={'/newCapsule'} backLink={'/'} />
-      <Typography variant="h1" color="blue-gray" className="mb-2 secondary-font-large header-text">Your Capsule Preview</Typography>
+      <TopNavBar nextLink={"/newCapsule"} backLink={"/"} />
+      <Typography
+        variant="h1"
+        color="blue-gray"
+        className="mb-2 secondary-font-large header-text"
+      >
+        Your Capsule Preview
+      </Typography>
 
-      <Typography variant="h2" color="blue-gray" className="mb-2 primary-font-large header-text">Memories</Typography>      
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="mb-2 primary-font-large header-text"
+      >
+        Memories
+      </Typography>
 
-      <div className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden" style={{ "object-fit": "cover" }}>
+      <div
+        className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden"
+        style={{ "object-fit": "cover" }}
+      >
         <Carousel>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url}></img>;
           })}
         </Carousel>
       </div>
-      <div className="flex justify-evenly my-1"><Button className="primary-blue-background next-button">Edit memories</Button></div>
+      <div className="flex justify-evenly my-1">
+        <Button className="primary-blue-background next-button">
+          Edit memories
+        </Button>
+      </div>
 
-      <Typography variant="h2" color="blue-gray" className="mb-2 primary-font-large header-text">Notes</Typography>      
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="mb-2 primary-font-large header-text"
+      >
+        Notes
+      </Typography>
 
       <div className="h-80 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
@@ -56,7 +81,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         </Carousel>
       </div>
 
-      <Typography variant="h2" color="blue-gray" className="mb-2 primary-font-large header-text">Goodwill</Typography>
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="mb-2 primary-font-large header-text"
+      >
+        Goodwill
+      </Typography>
 
       <div className="h-96 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
@@ -74,12 +105,11 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </div>
 
       <EditMemoriesModal
-        // showModal={photoModal}
-        // onCloseModal={closePhotoModal}
-        // userData={userData}
-        // capsuleData={capsuleData} 
+      // showModal={photoModal}
+      // onCloseModal={closePhotoModal}
+      // userData={userData}
+      // capsuleData={capsuleData}
       />
-
     </div>
   );
 };
