@@ -26,29 +26,11 @@ const CreateCapsule = ({ userData, capsuleData }) => {
       >
         Create your capsule
       </Typography>
-      <img src={templates}></img>
-      {/* <div className="templates">
-        <p>Templates</p>
-        <div className="templateWrapper secondary-blue-background">
-          <div className="templateCircle secondary-green-background">
-            Free
-          </div>
-          <div className="templateCircle secondary-green-background">
-            Free
-          </div>
-          <div className="templateCircle secondary-green-background">
-            Free
-          </div>
-          <div className="templateCircle secondary-green-background">
-            Pro
-          </div>
-        </div>
-      </div> */}
+      <img src={templates}></img>     
       <div>
         <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
         <AddInfo title={"notes"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />
-        
+        <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />        
       </div>
     </div>
   );
