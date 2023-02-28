@@ -11,10 +11,10 @@ import { GrNotes } from "react-icons/gr";
 import { RiHandHeartLine } from "react-icons/ri";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import AddNoteModal from "../../modals/AddNoteModal";
-import AddPhotoModal from "../../modals/AddPhotoModal";
-import AddVideoModal from "../../modals/AddVideoModal";
-import AddGoodwillModal from "../../modals/AddGoodwillModal";
+import AddNoteModal from "../modals/AddNoteModal";
+import AddPhotoModal from "../modals/AddPhotoModal";
+import AddVideoModal from "../modals/AddVideoModal";
+import AddGoodwillModal from "../modals/AddGoodwillModal";
 // import { SlArrowRight } from "react-icons/sl";
 // import { CgTemplate } from "react-icons/cg";
 

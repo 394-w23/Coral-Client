@@ -14,7 +14,7 @@ import DeleteMemoryModal from "../modals/DeleteMemoryModal";
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
-import EditMemoriesModal from "../components/EditModals/EditMemoriesModal";
+import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
