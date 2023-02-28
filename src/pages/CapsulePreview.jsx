@@ -18,8 +18,6 @@ import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
-  // console.log("Checking data: ", capsuleData);
-  // console.log(capsuleData.photoLinks.slice(1));
   const capsulePhotos = capsuleData.photoLinks.slice(1);
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
@@ -28,19 +26,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   const openDeleteMemoryModal = () => setDeleteMemoryModal(true);
   const closeDeleteMemoryModal = () => setDeleteMemoryModal(false);
 
-  const [update] = useDbUpdate(`/`);
+  const [slideCarousel, setSlideCarousel] = useState(true);
+  const slideOn = () => setSlideCarousel(true);
+  const slideOff = () => setSlideCarousel(false);
 
   const handleDelete = () => {
-    const url = document.querySelector(`[data-active=true]`).querySelector(`[id=currentMemory]`).src;
-    let updatedPhotoLinks = [];
-    for (const photo in capsulePhotos) {
-      if (capsulePhotos[photo] !== url) {
-        updatedPhotoLinks.push(capsulePhotos[photo]);
-      }
-    }
+    slideOff();
     openDeleteMemoryModal();
-    capsuleData["photoLinks"] = updatedPhotoLinks;
-    update({ ["emmalovecapsuleuuid"]: capsuleData });
   };
 
   return (
@@ -49,8 +41,8 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
-        userData={userData}
-        capsuleData={capsuleData} />
+        capsuleData={capsuleData}
+        slideOn={slideOn} />
       <TopNavBar nextLink={"/newCapsule"} backLink={"/"} />
       <Typography
         variant="h1"
@@ -75,7 +67,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         <Button onClick={handleDelete} className="bg-red-500 next-button">
           X
         </Button>
-        <Carousel>
+        <Carousel slide={slideCarousel}>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url} id="currentMemory"></img>;
           })}

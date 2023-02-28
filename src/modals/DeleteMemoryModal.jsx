@@ -6,14 +6,22 @@ import { useDbUpdate, useDbData } from "../../utilities/firebase";
 import storage from "../../utilities/firebase";
 import validator from "validator";
 
-const DeleteMemoryModal = ({ showModal, onCloseModal, userData, capsuleData, url, photoLinks }) => {
-    const [update] = useDbUpdate(`/`);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks");
+const DeleteMemoryModal = ({ showModal, onCloseModal, capsuleData, slideOn}) => {
+    const [update] = useDbUpdate(`/capsules/`);
+    const capsulePhotos = capsuleData.photoLinks.slice(1);
 
-    const handleDelete = (e) => {
-        console.log(url);
-        console.log(photoLinks);
+    const handleDelete = () => {
+        const url = document.querySelector(`[data-active=true]`).querySelector(`[id=currentMemory]`).src;
+        let updatedPhotoLinks = ["",];
+        for (const photo in capsulePhotos) {
+            if (capsulePhotos[photo] !== url) {
+                updatedPhotoLinks.push(capsulePhotos[photo]);
+            }
+        }
+        capsuleData["photoLinks"] = updatedPhotoLinks;
+        update({ ["emmalovecapsuleuuid"]: capsuleData });
+        slideOn();
+        onCloseModal();
     };
 
     return (
