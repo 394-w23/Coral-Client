@@ -42,11 +42,11 @@ const App = () => {
 
   const eventID = "thisisauuid122233woohoo";
   const userID = "useruuidemma";
-  console.log("Data: ", data);
+  // console.log("Data: ", data);
   const userCapsule = data.capsules.emmalovecapsuleuuid;
   const user = data.users.emmasuuid;
-  console.log("User Capsule: ", userCapsule);
-  console.log("User: ", user);
+  // console.log("User Capsule: ", userCapsule);
+  // console.log("User: ", user);
 
   return (
     <Router>

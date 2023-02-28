@@ -16,7 +16,7 @@ const PreviewCard = ({ title, description }) => {
             {title}
           </Typography>
 
-          <Typography variant="p" color="blue-gray" className="mb-2">
+          <Typography variant="paragraph" color="blue-gray" className="mb-2">
             {description}
           </Typography>
         </CardBody>

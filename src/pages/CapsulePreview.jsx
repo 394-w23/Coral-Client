@@ -11,15 +11,15 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import DeleteMemoryModal from "../modals/DeleteMemoryModal"; 
-
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
 import EditMemoriesModal from "../components/EditModals/EditMemoriesModal";
+import { useDbUpdate, useDbData } from "../../utilities/firebase";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
-  console.log("Checking data: ", capsuleData);
-  console.log(capsuleData.photoLinks.slice(1));
+  // console.log("Checking data: ", capsuleData);
+  // console.log(capsuleData.photoLinks.slice(1));
   const capsulePhotos = capsuleData.photoLinks.slice(1);
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
@@ -27,6 +27,8 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   const [deleteMemoryModal, setDeleteMemoryModal] = useState(false);
   const openDeleteMemoryModal = () => setDeleteMemoryModal(true);
   const closeDeleteMemoryModal = () => setDeleteMemoryModal(false);
+
+  const [update] = useDbUpdate(`/`);
 
   const handleDelete = () => {
     const url = document.querySelector(`[data-active=true]`).querySelector(`[id=currentMemory]`).src;
@@ -36,19 +38,19 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         updatedPhotoLinks.push(capsulePhotos[photo]);
       }
     }
-    //openDeleteMemoryModal();
-    // capsuleData["photoLinks"] = updatedPhotoLinks;
-    // update({ ["emmalovecapsuleuuid"]: capsuleData });
+    openDeleteMemoryModal();
+    capsuleData["photoLinks"] = updatedPhotoLinks;
+    update({ ["emmalovecapsuleuuid"]: capsuleData });
   };
 
   return (
     
     <div className="background-white" style={{ height: "200vh" }}>
-      {/* <DeleteMemoryModal
+      <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
         userData={userData}
-        capsuleData={capsuleData} /> */}
+        capsuleData={capsuleData} />
       <TopNavBar nextLink={"/newCapsule"} backLink={"/"} />
       <Typography
         variant="h1"
@@ -67,9 +69,12 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-56 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden"
-        style={{ "object-fit": "cover" }}
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        style={{ "objectFit": "cover" }}
       >
+        <Button onClick={handleDelete} className="bg-red-500 next-button">
+          X
+        </Button>
         <Carousel>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url} id="currentMemory"></img>;
@@ -77,9 +82,9 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         </Carousel>
       </div>
       <div className="flex justify-evenly my-1">
-        <Button onClick={handleDelete} className="bg-red-700 next-button">
+        {/* <Button onClick={handleDelete} className="bg-red-700 next-button">
           Delete this memory
-        </Button>
+        </Button> */}
       </div>
 
       <Typography
@@ -92,12 +97,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
 
       <div className="h-80 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          {capsuleNotes.map((note) => {
+          {capsuleNotes.map((note, index) => {
             return (
               <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
                 <PreviewCard
                   title={note.title}
                   description={note.content}
+                  key={index}
                 ></PreviewCard>
               </div>
             );
@@ -115,12 +121,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
 
       <div className="h-96 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          {capsuleGoodwill.map((goodwill) => {
+          {capsuleGoodwill.map((goodwill, index) => {
             return (
               <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
                 <PreviewCard
                   title={goodwill.charityName}
                   description={goodwill.request}
+                  key={index}
                 ></PreviewCard>
               </div>
             );
@@ -128,12 +135,12 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         </Carousel>
       </div>
 
-      <EditMemoriesModal
-      // showModal={photoModal}
-      // onCloseModal={closePhotoModal}
-      // userData={userData}
-      // capsuleData={capsuleData}
-      />
+      {/* <EditMemoriesModal
+      showModal={photoModal}
+      onCloseModal={closePhotoModal}
+      userData={userData}
+      capsuleData={capsuleData}
+      /> */}
     </div>
   );
 };
