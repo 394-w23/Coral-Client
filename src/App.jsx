@@ -11,6 +11,7 @@ import CreateCapsule from "./pages/CreateCapsule";
 import NewCapsule from "./pages/NewCapsule";
 import CapsulePreview from "./pages/CapsulePreview";
 import CapsuleGallery from "./pages/CapsuleGallery";
+import Login from "./pages/Login";
 import "./App.css";
 
 
@@ -51,8 +52,14 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route
+      <Route
           path="/"
+          element={
+            <Login users={data.users}></Login>
+          }
+        ></Route>
+        <Route
+          path="/createCapsule"
           element={
             <CreateCapsule userData={user} capsuleData={userCapsule}></CreateCapsule>
           }
