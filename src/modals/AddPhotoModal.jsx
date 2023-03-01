@@ -6,7 +6,7 @@ import { useDbUpdate, useDbData } from "../../utilities/firebase";
 import storage from "../../utilities/firebase";
 import validator from "validator";
 
-const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+const AddPhotoModal = ({ showModal, onCloseModal, capsuleData }) => {
   const [update] = useDbUpdate(`/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks");

@@ -22,9 +22,8 @@ const Login = ({ users, setUser}) => {
             if (filteredEmail[0][1].password === password){
                 setErrorMessage("");
                 setUser(filteredEmail[0][0]);
-
             }
-            else{
+            else {
                 setErrorMessage("Wrong password");
             }
         } 
@@ -33,11 +32,11 @@ const Login = ({ users, setUser}) => {
         }
     }
     users = Object.entries(users);   
-    console.log(users);
+    // console.log(users);
     return (
         <div style={{ height: "100vh" }}>
-            <TopNavBar backLink={"/capsulePreview"} />
-            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            {/* <TopNavBar backLink={"/capsulePreview"} /> */}
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-30">
                 {errorMessage != "" && (
                     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
                     <p className="font-bold">{errorMessage}</p>

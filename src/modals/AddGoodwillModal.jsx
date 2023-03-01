@@ -3,7 +3,7 @@ import { Modal, Label, TextInput } from "flowbite-react";
 import { Button } from "@material-tailwind/react";
 import { useDbUpdate } from "../../utilities/firebase";
 
-const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+const AddGoodwillModal = ({ showModal, onCloseModal, capsuleData }) => {
   const [update] = useDbUpdate(`/capsules/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 

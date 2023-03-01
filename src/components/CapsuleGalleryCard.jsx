@@ -24,6 +24,9 @@ const CapsuleGalleryCard = ({ name, image }) => {
             <Button className="primary-blue-background next-button">
               Share
             </Button>
+            <Button className="primary-blue-background next-button">
+              Preview
+            </Button>
             <Link to="/createCapsule">
               <Button className="primary-blue-background next-button">
                 Edit

@@ -22,18 +22,18 @@ const NewCapsule = ({ name }) => {
   return (
     <div style={{ height: "100vh" }}>
       <TopNavBar backLink={"/capsulePreview"} />
-      <div class="flex justify-center">
+      <div className="flex justify-center">
         <img
           src={logo}
           alt="Logo"
           style={{ width: "600px", height: "auto" }}
         ></img>
       </div>
-      <div class="content-center capsule-description">
-        <h1 class="user">
-          <b>Emma,</b>
+      <div className="content-center capsule-description">
+        <h1 className="user">
+          <b>{name},</b>
         </h1>
-        <p class="description">Your capsule of love has been created</p>
+        <p className="description">Your last act capsule of love has been created</p>
       </div>
       <br />
       <ActivateSwitch />      

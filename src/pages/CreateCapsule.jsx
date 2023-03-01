@@ -9,13 +9,17 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-
 import Navigation from "../components/Navigation/Navigation";
 import AddInfo from "../components/AddInfo";
 import TopNavBar from "../components/TopNavBar";
 import templates from "../../public/templates.png";
+import { v4 as uuidv4 } from 'uuid';
 
-const CreateCapsule = ({ userData, capsuleData }) => {
+const capsuleId = uuidv4();
+
+const CreateCapsule = ({ user }) => {
+  // TODO:
+  // Create a new capsule in the database under user and capsule ID = capsuleId
   return (
     <div className="background-white" style={{ height: "120vh" }}>
       <TopNavBar nextLink={'/capsulePreview'} />
@@ -28,9 +32,9 @@ const CreateCapsule = ({ userData, capsuleData }) => {
       </Typography>
       <img src={templates}></img>     
       <div>
-        <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"notes"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />        
+        <AddInfo title={"memories"} capsuleId={capsuleId} />
+        <AddInfo title={"notes"} capsuleId={capsuleId} />
+        <AddInfo title={"goodwill"} capsuleId={capsuleId} />        
       </div>
     </div>
   );

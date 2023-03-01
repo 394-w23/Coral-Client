@@ -13,27 +13,10 @@ import CapsulePreview from "./pages/CapsulePreview";
 import CapsuleGallery from "./pages/CapsuleGallery";
 import Login from "./pages/Login";
 import "./App.css";
-
-
-
-
-
-
-
-
 //add useState for handling the image as a file and then the image as a url from firebase
 import storage from "../utilities/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useDbUpdate } from "../utilities/firebase";
-
-
-
-
-
-
-
-
-
 const App = () => {
   const [data, error] = useDbData("/"); // get whole database
   const [userLoggedIn, setUserLoggedIn] = useState();
@@ -41,49 +24,62 @@ const App = () => {
   if (data === undefined) return <h1>Loading data...</h1>;
   if (!data) return <h1>No data found</h1>;
 
-  const eventID = "thisisauuid122233woohoo";
-  const userID = "useruuidemma";
   // console.log("Data: ", data);
-  const userCapsule = data.capsules.emmalovecapsuleuuid;
+  
   const user = data.users.emmasuuid;
   // console.log("User Capsule: ", userCapsule);
-  // console.log("User: ", user);
+  if (userLoggedIn) {
+    console.log("Logged in:", userLoggedIn)
+  }
+  else {
+    console.log("Logged out")
+  }
 
   return (
     <Router>
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
-              userLoggedIn ? <Navigate to="/capsuleGallery" />
+            userLoggedIn ? <Navigate to="/capsuleGallery" />
               : <Login users={data.users} setUser={setUserLoggedIn} />
           }
         ></Route>
+        {/* 
+        TODO:
+        Change path of createCapsule to /createCapsule/{capsuleId}
+         */}
         <Route
-          path="/createCapsule"
+          path="/createCapsule/:id"
           element={
-            <CreateCapsule userData={user} capsuleData={userCapsule}></CreateCapsule>
+            userLoggedIn ? <CreateCapsule user={userLoggedIn}></CreateCapsule>
+              : <Login users={data.users} setUser={setUserLoggedIn} />
           }
         ></Route>
         <Route
           path="/newCapsule"
           element={
-            <NewCapsule></NewCapsule>
+            userLoggedIn ? <NewCapsule name={data.users[userLoggedIn].name}></NewCapsule>
+              : <Login users={data.users} setUser={setUserLoggedIn} />
           }
         ></Route>
         <Route
           path="/capsulePreview"
           element={
-            <CapsulePreview userData={user} capsuleData={userCapsule}></CapsulePreview>
+            userLoggedIn ? <CapsulePreview userData={userLoggedIn} capsuleId={}></CapsulePreview>
+              : <Login users={data.users} setUser={setUserLoggedIn} />
           }>
         </Route>
         <Route
           path="/capsuleGallery"
-          element={<CapsuleGallery data={data}></CapsuleGallery>}>
+          element={
+            userLoggedIn ? <CapsuleGallery data={data}></CapsuleGallery>
+              : <Login users={data.users} setUser={setUserLoggedIn} />
+          }>
         </Route>
       </Routes>
     </Router>
-  
+
   );
 };
 

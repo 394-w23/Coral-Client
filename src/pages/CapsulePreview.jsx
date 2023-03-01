@@ -16,8 +16,10 @@ import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
 import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
+import { useParams } from 'react-router-dom';
 
-const CapsulePreview = ({ userData, capsuleData }) => {
+const CapsulePreview = ({ capsuleData }) => {
+  const { id } = useParams();
   const capsulePhotos = capsuleData.photoLinks.slice(1);
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
