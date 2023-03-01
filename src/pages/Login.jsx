@@ -37,21 +37,21 @@ const Login = ({ users, setUser}) => {
     return (
         <div style={{ height: "100vh" }}>
             <TopNavBar backLink={"/capsulePreview"} />
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 {errorMessage != "" && (
                     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
                     <p className="font-bold">{errorMessage}</p>
                   </div>
                 )}
-                <label>
+                <label className="block text-gray-700 text-sm font-bold mb-2" >
                     Email address:
-                    <input type="text" name="email" />
+                    <input type="text" name="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
                 </label>
-                <label>
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                     Password:
-                    <input type="text" name="password" />
+                    <input type="text" name="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
                 </label>
-                <button type="submit">
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Login
                 </button>
             </form>
