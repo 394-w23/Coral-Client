@@ -36,7 +36,7 @@ import { useDbUpdate } from "../utilities/firebase";
 
 const App = () => {
   const [data, error] = useDbData("/"); // get whole database
-
+  const [user, setUser] = useState();
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
   if (data === undefined) return <h1>Loading data...</h1>;
   if (!data) return <h1>No data found</h1>;
@@ -45,7 +45,7 @@ const App = () => {
   const userID = "useruuidemma";
   // console.log("Data: ", data);
   const userCapsule = data.capsules.emmalovecapsuleuuid;
-  const user = data.users.emmasuuid;
+  // const user = data.users.emmasuuid;
   // console.log("User Capsule: ", userCapsule);
   // console.log("User: ", user);
 
@@ -55,7 +55,8 @@ const App = () => {
       <Route
           path="/"
           element={
-            <Login users={data.users}></Login>
+              <Login users={data.users} setUser={setUser}></Login>
+            
           }
         ></Route>
         <Route

@@ -6,26 +6,34 @@ import TopNavBar from "../components/TopNavBar";
 import validator from "validator";
 
 
-const Login = ({ users }) => {
+const Login = ({ users, setUser}) => {
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const userEmailPass = users.map((user) => { return {"email": user.email, "password": user.password} });
-        const isEmail = users.filter((user) => user.email == email);
+        // const userEmailPass = users.map((user) => { return {"email": user.email, "password": user.password} });
+        const filteredEmail = users.filter((user) => user[1].email == email);
+        console.log(filteredEmail);
         if (!validator.isEmail(email)) {
             setErrorMessage("Email address is not valid");
         }
-        else if (isEmail){
-            console.log("working");
+        else if (filteredEmail.length > 0){
+            if (filteredEmail[0][1].password === password){
+                setErrorMessage("");
+                setUser(filteredEmail.uuid);
+            }
+            else{
+                setErrorMessage("Wrong password");
+            }
         } 
         else {
             setErrorMessage("");
         }
     }
-
+    users = Object.entries(users);   
+    console.log(users);
     return (
         <div style={{ height: "100vh" }}>
             <TopNavBar backLink={"/capsulePreview"} />
