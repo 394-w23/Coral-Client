@@ -43,7 +43,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         onCloseModal={closeDeleteMemoryModal}
         capsuleData={capsuleData}
         slideOn={slideOn} />
-      <TopNavBar nextLink={"/newCapsule"} backLink={"/"} />
+      <TopNavBar nextLink={"/newCapsule"} backLink={"/createCapsule"} />
       <Typography
         variant="h1"
         color="blue-gray"

@@ -22,7 +22,8 @@ const Login = ({ users, setUser}) => {
         else if (filteredEmail.length > 0){
             if (filteredEmail[0][1].password === password){
                 setErrorMessage("");
-                setUser(filteredEmail.uuid);
+                setUser(filteredEmail[0][0]);
+
             }
             else{
                 setErrorMessage("Wrong password");
@@ -49,7 +50,7 @@ const Login = ({ users, setUser}) => {
                 </label>
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                     Password:
-                    <input type="text" name="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+                    <input type="password" name="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
                 </label>
                 <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Login
