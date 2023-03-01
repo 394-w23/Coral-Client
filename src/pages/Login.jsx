@@ -22,7 +22,8 @@ const Login = ({ users, setUser}) => {
         else if (filteredEmail.length > 0){
             if (filteredEmail[0][1].password === password){
                 setErrorMessage("");
-                setUser(filteredEmail.uuid);
+                setUser(filteredEmail[0][0]);
+
             }
             else{
                 setErrorMessage("Wrong password");
@@ -36,7 +37,6 @@ const Login = ({ users, setUser}) => {
     console.log(users);
     return (
         <div style={{ height: "100vh" }}>
-            <TopNavBar backLink={"/capsulePreview"} />
             <form onSubmit={handleSubmit}>
                 {errorMessage != "" && (
                     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
@@ -49,7 +49,7 @@ const Login = ({ users, setUser}) => {
                 </label>
                 <label>
                     Password:
-                    <input type="text" name="password" />
+                    <input type="password" name="password" />
                 </label>
                 <button type="submit">
                     Login
