@@ -13,7 +13,6 @@ const Login = ({ users, setUser}) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        // const userEmailPass = users.map((user) => { return {"email": user.email, "password": user.password} });
         const filteredEmail = users.filter((user) => user[1].email == email);
         console.log(filteredEmail);
         if (!validator.isEmail(email)) {
