@@ -12,6 +12,7 @@ import NewCapsule from "./pages/NewCapsule";
 import CapsulePreview from "./pages/CapsulePreview";
 import CapsuleGallery from "./pages/CapsuleGallery";
 import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";  
 import "./App.css";
 
 
@@ -80,6 +81,10 @@ const App = () => {
         <Route
           path="/capsuleGallery"
           element={<CapsuleGallery data={data}></CapsuleGallery>}>
+        </Route>
+        <Route
+          path="/landingPage"
+          element={<LandingPage data={data}></LandingPage>}>
         </Route>
       </Routes>
     </Router>

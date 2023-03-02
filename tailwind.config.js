@@ -9,10 +9,15 @@ module.exports = withMT({
     "./node_modules/flowbite-react/*/.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sen: ["Sen", "sans-serif"],
+      } 
+    },
     colors: {
       greenPrimary: "#a5be00",
       navyPrimary: "#074789",
+      paleBlue: "#ebf2fa",
     },
   },
   plugins: [require("tw-elements/dist/plugin"), require("flowbite/plugin")],
