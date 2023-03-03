@@ -26,6 +26,14 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   const openDeleteMemoryModal = () => setDeleteMemoryModal(true);
   const closeDeleteMemoryModal = () => setDeleteMemoryModal(false);
 
+  const [deleteNoteModal, setDeleteNoteModal] = useState(false);
+  const openDeleteNoteModal = () => setDeleteNoteModal(true);
+  const closeDeleteNoteModal = () => setDeleteNoteModal(false);
+
+  const [deleteGoodwillModal, setDeleteGoodwillModal] = useState(false);
+  const openDeleteGoodwillModal = () => setDeleteGoodwillModal(true);
+  const closeDeleteGoodwillModal = () => setDeleteGoodwillModal(false);
+
   const [slideCarousel, setSlideCarousel] = useState(true);
   const slideOn = () => setSlideCarousel(true);
   const slideOff = () => setSlideCarousel(false);
@@ -78,7 +86,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
           Delete this memory
         </Button> */}
       </div>
-
+      
       <Typography
         variant="h2"
         color="blue-gray"
