@@ -7,13 +7,14 @@ const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) =>
   const [update] = useDbUpdate(`/capsules/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleSubmit = () => {
-    const charity = document.getElementById("add-goodwill-charity-name").value;
-    const request = document.getElementById("add-goodwill-request").value;
-    if (charity.length != 0 && request.length != 0) {
-      let updatedGoodwill = capsuleData["goodwill"];
-      updatedGoodwill.push({ charityName: charity, request: request });
-      capsuleData["goodwill"] = updatedGoodwill;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const charityName = event.target.charityName.value;
+    const request = event.target.request.value;
+    if (charityName.length !== 0 && request.length !== 0) {
+      let updatedCharity = capsuleData["goodwill"];
+      updatedCharity.push({ charityName: charityName, request: request });
+      capsuleData["goodwill"] = updatedCharity;
       update({ ["emmalovecapsuleuuid"]: capsuleData });
       setShowSuccessMessage(true);
       setTimeout(() => {
@@ -21,40 +22,43 @@ const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) =>
         onCloseModal();
       }, 2000);
     } else {
-      console.log("Goodwill data not updated");
-    };
+      console.log("Charity data not updated");
+    }
   };
   return (
     <Modal show={showModal} size="md" popup={true} onClose={onCloseModal}>
       <Modal.Header />
       <Modal.Body>
-        <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-            Add Your Charities
+            Add Charity
           </h3>
           {showSuccessMessage && (
             <div className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-            <span className="font-medium">Successfully added!</span>
-          </div>
+              <span className="font-medium">Successfully added!</span>
+            </div>
           )}
           <div>
-            <div className="mb-2 block">
-              <Label htmlFor="charityName" value="Charity Name" />
-            </div>
-            <TextInput id="add-goodwill-charity-name" placeholder="" required={true} />
+            <label htmlFor="title" value="Title">
+              Charity Name:
+              <input name="charityName" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+            </label>
           </div>
           <div>
-            <div className="mb-2 block">
-              <Label htmlFor="request" value="Your request" />
-            </div>
-            <TextInput id="add-goodwill-request" required={true} />
+
+            <label htmlFor="message" value="Your message">
+              Your request:
+              <input name="request" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+            </label>
+
           </div>
-          <div>
-            <Button onClick={handleSubmit} className="text-white bg-indigo-600 relative cursor-default select-none py-2 pl-3 pr-12 dropdown-option secondary-green-background">
-              Upload
-            </Button>
+          <div className="flex flex-col items-center">
+            <button type="submit" className="secondary-green-background text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6">
+              SAVE
+            </button>
           </div>
-        </div>
+        </form>
       </Modal.Body>
     </Modal>
   );
