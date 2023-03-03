@@ -4,7 +4,7 @@ import "./NewCapsule/NewCapsule.css";
 import "../App.css";
 import validator from "validator";
 import { Typography } from "@material-tailwind/react";
-import CapsuleLogo from ".././public/MyCapsule_Logo.png";
+import CapsuleLogo from "../../public/MyCapsule_Logo.png";
 
 const Login = ({ users, setUser }) => {
     const [errorMessage, setErrorMessage] = useState("");

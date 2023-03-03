@@ -11,6 +11,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import DeleteMemoryModal from "../modals/DeleteMemoryModal"; 
+import DeleteTaskModal from "../modals/DeleteTaskModal";
+import DeleteCharityModal from "../modals/DeleteCharityModal";
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
 import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
@@ -26,21 +28,31 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   const openDeleteMemoryModal = () => setDeleteMemoryModal(true);
   const closeDeleteMemoryModal = () => setDeleteMemoryModal(false);
 
-  const [deleteNoteModal, setDeleteNoteModal] = useState(false);
-  const openDeleteNoteModal = () => setDeleteNoteModal(true);
-  const closeDeleteNoteModal = () => setDeleteNoteModal(false);
+  const [deleteTaskModal, setDeleteTaskModal] = useState(false);
+  const openDeleteTaskModal = () => setDeleteTaskModal(true);
+  const closeDeleteTaskModal = () => setDeleteTaskModal(false);
 
-  const [deleteGoodwillModal, setDeleteGoodwillModal] = useState(false);
-  const openDeleteGoodwillModal = () => setDeleteGoodwillModal(true);
-  const closeDeleteGoodwillModal = () => setDeleteGoodwillModal(false);
+  const [deleteCharityModal, setDeleteCharityModal] = useState(false);
+  const openDeleteCharityModal = () => setDeleteCharityModal(true);
+  const closeDeleteCharityModal = () => setDeleteCharityModal(false);
 
   const [slideCarousel, setSlideCarousel] = useState(true);
   const slideOn = () => setSlideCarousel(true);
   const slideOff = () => setSlideCarousel(false);
 
-  const handleDelete = () => {
+  const handleDeleteMemory = () => {
     slideOff();
     openDeleteMemoryModal();
+  };
+
+  const handleDeleteTask = () => {
+    slideOff();
+    openDeleteTaskModal();
+  };
+
+  const handleDeleteCharity = () => {
+    slideOff();
+    openDeleteCharityModal();
   };
 
   return (
@@ -49,6 +61,16 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
+        capsuleData={capsuleData}
+        slideOn={slideOn} />
+      <DeleteTaskModal
+        showModal={deleteTaskModal}
+        onCloseModal={closeDeleteTaskModal}
+        capsuleData={capsuleData}
+        slideOn={slideOn} />
+      <DeleteCharityModal
+        showModal={deleteCharityModal}
+        onCloseModal={closeDeleteCharityModal}
         capsuleData={capsuleData}
         slideOn={slideOn} />
       <TopNavBar nextLink={"/newCapsule"} backLink={"/createCapsule"} />
@@ -72,10 +94,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
         style={{ "objectFit": "cover" }}
       >
-        <Button onClick={handleDelete} className="bg-red-500 next-button">
+        <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">
           X
         </Button>
-        <Carousel slide={slideCarousel}>
+        <Carousel id="memories" slide={false}>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url} id="currentMemory"></img>;
           })}
@@ -95,15 +117,22 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         Notes
       </Typography>
 
-      <div className="h-80 sm:h-64 xl:h-80 2xl:h-96">
-        <Carousel>
+      <div
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        style={{ "objectFit": "cover" }}
+      >
+        <Button onClick={handleDeleteTask} className="bg-red-500 next-button">
+          X
+        </Button>
+        <Carousel id="tasks" slide={slideCarousel}>
           {capsuleNotes.map((note, index) => {
             return (
-              <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+              <div id="taskCard" className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
                 <PreviewCard
                   title={note.title}
                   description={note.content}
                   key={index}
+                  id="currentTask"
                 ></PreviewCard>
               </div>
             );
@@ -119,15 +148,22 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         Goodwill
       </Typography>
 
-      <div className="h-96 sm:h-64 xl:h-80 2xl:h-96">
-        <Carousel>
+      <div
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        style={{ "objectFit": "cover" }}
+      >
+        <Button onClick={handleDeleteCharity} className="bg-red-500 next-button">
+          X
+        </Button>
+        <Carousel id="charities" slide={slideCarousel}>
           {capsuleGoodwill.map((goodwill, index) => {
             return (
-              <div className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+              <div id="charityCard" className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
                 <PreviewCard
                   title={goodwill.charityName}
                   description={goodwill.request}
                   key={index}
+                  id="currentCharity"
                 ></PreviewCard>
               </div>
             );

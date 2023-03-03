@@ -9,14 +9,14 @@ import { useState } from "react";
 
 const PreviewCard = ({ title, description }) => {
   return (
-    <div>
-      <Card className="w-[70vw] text-centered my-4 border-solid border-2">
-        <CardBody>
-          <Typography color="blue-gray" className="mb-2 secondary-font-medium">
+    <div id="previewCard">
+      <Card id="cardContent" className="w-[70vw] text-centered my-4 border-solid border-2">
+        <CardBody id="cardBody">
+          <Typography id="title" color="blue-gray" className="mb-2 secondary-font-medium">
             {title}
           </Typography>
 
-          <Typography variant="paragraph" color="blue-gray" className="mb-2">
+          <Typography id="content" variant="paragraph" color="blue-gray" className="mb-2">
             {description}
           </Typography>
         </CardBody>
