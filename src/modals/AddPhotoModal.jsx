@@ -10,22 +10,7 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
   const [update] = useDbUpdate(`/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks");
-  const handleSubmit = () => {
-    const url = document.getElementById("add-photo-url").value;
-    if (validator.isURL(url)) {
-      let updatedPhotoLinks = capsuleData["photoLinks"];
-      updatedPhotoLinks.push(url);
-      capsuleData["photoLinks"] = updatedPhotoLinks;
-      update({ ["emmalovecapsuleuuid"]: capsuleData });
-      setShowSuccessMessage(true);
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-        onCloseModal();
-      }, 2000);
-    } else {
-      console.log("Photo data not updated");
-    }
-  };
+
   const handleUpload = (e) => {
     const file = document.getElementById("add-photo-modal-input").files[0];
 
@@ -42,7 +27,8 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
         const percent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         ); // update progress
-        setPercent(percent);
+        // setPercent(percent);
+        console.log(percent);
       },
       (err) => console.log(err),
       () => {
@@ -50,6 +36,11 @@ const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           data.push(url);
           update({ [`/capsules/emmalovecapsuleuuid/photoLinks`]: data });
+          setShowSuccessMessage(true);
+          setTimeout(() => {
+            setShowSuccessMessage(false);
+            onCloseModal();
+          }, 2000);
         });
       }
     );
