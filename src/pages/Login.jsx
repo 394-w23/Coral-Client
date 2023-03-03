@@ -4,6 +4,7 @@ import "./NewCapsule/NewCapsule.css";
 import "../App.css";
 import validator from "validator";
 import { Typography } from "@material-tailwind/react";
+import CapsuleLogo from ".././public/MyCapsule_Logo.png";
 
 const Login = ({ users, setUser }) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -42,7 +43,7 @@ const Login = ({ users, setUser }) => {
             >
                 MyCapsule
             </Typography>
-            <img src=".././public/MyCapsule_Logo.png"></img>
+            <img src={CapsuleLogo}></img>
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 {errorMessage != "" && (
                     <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
