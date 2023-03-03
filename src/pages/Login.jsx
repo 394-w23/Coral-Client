@@ -13,7 +13,7 @@ const Login = ({ users, setUser }) => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         const filteredEmail = users.filter((user) => user[1].email == email);
-        console.log(filteredEmail);
+        // console.log(filteredEmail);
         if (!validator.isEmail(email)) {
             setErrorMessage("Email address is not valid");
         }
@@ -32,7 +32,7 @@ const Login = ({ users, setUser }) => {
         }
     }
     users = Object.entries(users);
-    console.log(users);
+    // console.log(users);
     return (
         <div style={{ height: "100vh" }}>
             <Typography
