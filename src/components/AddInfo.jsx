@@ -41,11 +41,11 @@ const AddInfo = ({ title, userData, capsuleData}) => {
   const openGoodwillModal = () => setGoodwillModal(true);
   const closeGoodwillModal = () => setGoodwillModal(false);
   const dropdownInfo = {
-    memories: { title: "Add memories", options: ["Add photos", "Add videos"] },
-    notes: { title: "Add notes", options: ["New note"] },
-    goodwill: {
-      title: "Add goodwill",
-      options: ["New goodwill request"],
+    memories: { title: "Add memories", options: ["Add photos"] },
+    tasks: { title: "Add tasks", options: ["New task"] },
+    charities: {
+      title: "Add charities",
+      options: ["New charity request"],
     },
   };
   // console.log("modal", noteModalOpen)
@@ -56,14 +56,11 @@ const AddInfo = ({ title, userData, capsuleData}) => {
     if (option === "Add photos") {
       openPhotoModal();
     }
-    if (option === "New note") {
+    if (option === "New task") {
       openNoteModal();
     }
-    if (option === "New goodwill request") {    
+    if (option === "New charity request") {    
       openGoodwillModal();
-    }
-    if (option === "Add videos") {
-      openVideoModal();
     }
   }
   return (
@@ -92,9 +89,9 @@ const AddInfo = ({ title, userData, capsuleData}) => {
         <div className="circle secondary-green-background center">
           {title === "memories" ? (
             <AiOutlinePicture className="icon" />
-          ) : title === "notes" ? (
+          ) : title === "tasks" ? (
             <GrNotes className="icon" />
-          ) : title === "goodwill" ? (
+          ) : title === "charities" ? (
             <RiHandHeartLine className="icon" />
           ) : (
             ""

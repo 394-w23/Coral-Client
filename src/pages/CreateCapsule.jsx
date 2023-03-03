@@ -29,8 +29,8 @@ const CreateCapsule = ({ userData, capsuleData }) => {
       <img src={templates}></img>     
       <div>
         <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"notes"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"goodwill"} userData={userData} capsuleData={capsuleData} />        
+        <AddInfo title={"tasks"} userData={userData} capsuleData={capsuleData} />
+        <AddInfo title={"charities"} userData={userData} capsuleData={capsuleData} />        
       </div>
     </div>
   );

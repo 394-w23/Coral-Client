@@ -30,7 +30,7 @@ const AddGoodwillModal = ({ showModal, onCloseModal, userData, capsuleData }) =>
       <Modal.Body>
         <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
           <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-            Add Your Goodwills
+            Add Your Charities
           </h3>
           {showSuccessMessage && (
             <div className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
