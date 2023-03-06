@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Switch from "react-switch";
+import logo from "../../../public/new_capsule.png";
+import unlocked from "../../../public/unlocked.png";
+import locked from "../../../public/locked.png";
+
+let url = locked;
 
 export default class ActivateSwitch extends Component {
     constructor() {
@@ -9,6 +14,7 @@ export default class ActivateSwitch extends Component {
     }
 
     handleChange(checked) {
+        url = unlocked;
         this.setState({ checked });
         var base_url = window.location.origin;
         console.log(base_url);
@@ -25,8 +31,23 @@ export default class ActivateSwitch extends Component {
     
     render() {
         return (
+            <div>
+                <div class="flex justify-center">
+                    <img
+                        src={url}
+                        alt="Logo"
+                        style={{ width: "600px", height: "auto" }}
+                    ></img>
+                </div>
+                <div class="content-center capsule-description">
+                    <h1 class="user">
+                        <b>Emma,</b>
+                    </h1>
+                    <p class="description">Your capsule of love has been created</p>
+                </div>
+                <br />
             <div className="example flex items-center justify-center">
-                <label htmlFor="normal-switch">
+                    <label htmlFor="normal-switch">
                     <label htmlFor="material-switch">
                         <Switch
                             checked={this.state.checked}
@@ -47,6 +68,7 @@ export default class ActivateSwitch extends Component {
                         <span>activate capsule</span>
                     </label>
                 </label>
+            </div>
             </div>
         );
     }
