@@ -211,3 +211,7 @@ img {
 .container {
   height: 150px;
 }
+.template{
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
