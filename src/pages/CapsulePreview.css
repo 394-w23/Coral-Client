@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+    height: 25%;
+}
+
+.delete-button {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 50 !important;
+    z-index: 2 !important;
+}

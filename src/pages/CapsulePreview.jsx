@@ -18,6 +18,7 @@ import pic2 from "../../public/templates.png";
 import TopNavBar from "../components/TopNavBar";
 import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
+import "./CapsulePreview.css";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
   const capsulePhotos = capsuleData.photoLinks.slice(1);
@@ -93,10 +94,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteTask} className="bg-red-500 next-button">
+        <Button onClick={handleDeleteTask} className="bg-red-500  delete-button">
           X
         </Button>
         <Carousel id="tasks" slide={slideCarousel}>
@@ -127,12 +128,12 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
         <Button
           onClick={handleDeleteCharity}
-          className="bg-red-500 next-button"
+          className="bg-red-500 delete-button"
         >
           X
         </Button>
@@ -171,10 +172,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">
+        <Button onClick={handleDeleteMemory} className="bg-red-500 delete-button">
           X
         </Button>
         <Carousel id="memories" slide={false}>
