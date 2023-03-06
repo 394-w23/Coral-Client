@@ -192,6 +192,11 @@ button {
   text-align: center;
 }
 
+.subhead-text {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
 img {
   margin-bottom: 20px;
 }
@@ -211,7 +216,7 @@ img {
 .container {
   height: 150px;
 }
-.template{
+.template {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }

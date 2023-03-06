@@ -10,7 +10,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import DeleteMemoryModal from "../modals/DeleteMemoryModal"; 
+import DeleteMemoryModal from "../modals/DeleteMemoryModal";
 import DeleteTaskModal from "../modals/DeleteTaskModal";
 import DeleteCharityModal from "../modals/DeleteCharityModal";
 import pic from "../../public/Screenshot 2023-02-19 195026.jpg";
@@ -56,23 +56,25 @@ const CapsulePreview = ({ userData, capsuleData }) => {
   };
 
   return (
-    
     <div className="background-white" style={{ height: "200vh" }}>
       <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
         capsuleData={capsuleData}
-        slideOn={slideOn} />
+        slideOn={slideOn}
+      />
       <DeleteTaskModal
         showModal={deleteTaskModal}
         onCloseModal={closeDeleteTaskModal}
         capsuleData={capsuleData}
-        slideOn={slideOn} />
+        slideOn={slideOn}
+      />
       <DeleteCharityModal
         showModal={deleteCharityModal}
         onCloseModal={closeDeleteCharityModal}
         capsuleData={capsuleData}
-        slideOn={slideOn} />
+        slideOn={slideOn}
+      />
       <TopNavBar nextLink={"/newCapsule"} backLink={"/createCapsule"} />
       <Typography
         variant="h1"
@@ -85,41 +87,14 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 primary-font-large header-text"
+        className="mb-2 primary-font-large subhead-text"
       >
-        Memories
+        Tasks
       </Typography>
 
       <div
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
-        style={{ "objectFit": "cover" }}
-      >
-        <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">
-          X
-        </Button>
-        <Carousel id="memories" slide={false}>
-          {capsulePhotos.map((url) => {
-            return <img src={url} key={url} id="currentMemory"></img>;
-          })}
-        </Carousel>
-      </div>
-      <div className="flex justify-evenly my-1">
-        {/* <Button onClick={handleDelete} className="bg-red-700 next-button">
-          Delete this memory
-        </Button> */}
-      </div>
-      
-      <Typography
-        variant="h2"
-        color="blue-gray"
-        className="mb-2 primary-font-large header-text"
-      >
-        Notes
-      </Typography>
-
-      <div
-        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
-        style={{ "objectFit": "cover" }}
+        style={{ objectFit: "cover" }}
       >
         <Button onClick={handleDeleteTask} className="bg-red-500 next-button">
           X
@@ -127,7 +102,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         <Carousel id="tasks" slide={slideCarousel}>
           {capsuleNotes.map((note, index) => {
             return (
-              <div id="taskCard" className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+              <div
+                id="taskCard"
+                className="flex h-full items-center justify-center secondary-green-background dark:text-white "
+              >
                 <PreviewCard
                   title={note.title}
                   description={note.content}
@@ -143,22 +121,28 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       <Typography
         variant="h2"
         color="blue-gray"
-        className="mb-2 primary-font-large header-text"
+        className="mb-2 primary-font-large subhead-text"
       >
         Goodwill
       </Typography>
 
       <div
-        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
-        style={{ "objectFit": "cover" }}
+        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteCharity} className="bg-red-500 next-button">
+        <Button
+          onClick={handleDeleteCharity}
+          className="bg-red-500 next-button"
+        >
           X
         </Button>
         <Carousel id="charities" slide={slideCarousel}>
           {capsuleGoodwill.map((goodwill, index) => {
             return (
-              <div id="charityCard" className="flex h-full items-center justify-center secondary-green-background dark:text-white ">
+              <div
+                id="charityCard"
+                className="flex h-full items-center justify-center secondary-green-background dark:text-white "
+              >
                 <PreviewCard
                   title={goodwill.charityName}
                   description={goodwill.request}
@@ -177,6 +161,33 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       userData={userData}
       capsuleData={capsuleData}
       /> */}
+
+      <Typography
+        variant="h2"
+        color="blue-gray"
+        className="mb-2 primary-font-large subhead-text"
+      >
+        Memories
+      </Typography>
+
+      <div
+        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
+        style={{ objectFit: "cover" }}
+      >
+        <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">
+          X
+        </Button>
+        <Carousel id="memories" slide={false}>
+          {capsulePhotos.map((url) => {
+            return <img src={url} key={url} id="currentMemory"></img>;
+          })}
+        </Carousel>
+      </div>
+      <div className="flex justify-evenly my-1">
+        {/* <Button onClick={handleDelete} className="bg-red-700 next-button">
+          Delete this memory
+        </Button> */}
+      </div>
     </div>
   );
 };
