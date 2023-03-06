@@ -47,7 +47,7 @@ const CreateCapsule = ({ userData, capsuleData }) => {
         <AddInfo title={"charities"} userData={userData} capsuleData={capsuleData} />        
       </div>
       <div
-        className={`fixed inset-x-0 font-Sen bottom-0 bg-paleBlue p-4 h-4/6 rounded-t-3xl transform transition-transform ${
+        className={`fixed inset-x-0 font-Sen bottom-0 bg-paleBlue p-4 h-5/6 rounded-t-3xl transform transition-transform ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
       >
