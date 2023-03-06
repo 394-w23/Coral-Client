@@ -123,7 +123,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         color="blue-gray"
         className="mb-2 primary-font-large subhead-text"
       >
-        Goodwill
+        Charity
       </Typography>
 
       <div
