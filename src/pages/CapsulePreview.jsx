@@ -19,6 +19,7 @@ import TopNavBar from "../components/TopNavBar";
 import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
 import "./CapsulePreview.css";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const CapsulePreview = ({ userData, capsuleData }) => {
   const capsulePhotos = capsuleData.photoLinks.slice(1);
@@ -97,8 +98,8 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteTask} className="bg-red-500  delete-button">
-          X
+        <Button onClick={handleDeleteTask} className="bg-transparent shadow-none delete-button">
+          <BsFillTrashFill/>
         </Button>
         <Carousel id="tasks" slide={slideCarousel}>
           {capsuleNotes.map((note, index) => {
@@ -133,9 +134,9 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       >
         <Button
           onClick={handleDeleteCharity}
-          className="bg-red-500 delete-button"
+          className="bg-transparent shadow-none delete-button"
         >
-          X
+          <BsFillTrashFill/>
         </Button>
         <Carousel id="charities" slide={slideCarousel}>
           {capsuleGoodwill.map((goodwill, index) => {
@@ -175,8 +176,8 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteMemory} className="bg-red-500 delete-button">
-          X
+        <Button onClick={handleDeleteMemory} className="bg-transparent shadow-none delete-button">
+          <BsFillTrashFill/>
         </Button>
         <Carousel id="memories" slide={false}>
           {capsulePhotos.map((url) => {

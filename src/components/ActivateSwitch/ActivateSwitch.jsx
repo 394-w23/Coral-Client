@@ -65,7 +65,7 @@ export default class ActivateSwitch extends Component {
                             id="material-switch"
                         />
                         <br />
-                        <span>activate capsule</span>
+                        <span className="flex justify-center">activate capsule</span>
                     </label>
                 </label>
             </div>
