@@ -86,37 +86,13 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         {mode==="create" ? 'Your Capsule Preview' : "Emma's last act of love"}
       </Typography>
 
+      
       <Typography
         variant="h2"
         color="blue-gray"
         className="mb-2 primary-font-large subhead-text"
       >
-        Memories
-      </Typography>
-
-      <div
-        className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
-        style={{ "objectFit": "cover" }}
-      >
-        {mode === "create" ? <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">X</Button> : ''}
-        <Carousel id="memories" slide={false}>
-          {capsulePhotos.map((url) => {
-            return <img src={url} key={url} id="currentMemory"></img>;
-          })}
-        </Carousel>
-      </div>
-      <div className="flex justify-evenly my-1">
-        {/* <Button onClick={handleDelete} className="bg-red-700 next-button">
-          Delete this memory
-        </Button> */}
-      </div>
-      
-      <Typography
-        variant="h2"
-        color="blue-gray"
-        className="mb-2 primary-font-large header-text"
-      >
-        Notes
+        Tasks
       </Typography>
 
       <div
@@ -185,12 +161,6 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         </Carousel>
       </div>
 
-      {/* <EditMemoriesModal
-      showModal={photoModal}
-      onCloseModal={closePhotoModal}
-      userData={userData}
-      capsuleData={capsuleData}
-      /> */}
 
       <Typography
         variant="h2"
