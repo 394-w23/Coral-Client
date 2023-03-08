@@ -10,6 +10,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import BottomSlideOverMenu from "../components/BottomSlideOverMenu";
 import DeleteMemoryModal from "../modals/DeleteMemoryModal";
 import DeleteTaskModal from "../modals/DeleteTaskModal";
 import DeleteCharityModal from "../modals/DeleteCharityModal";
@@ -58,8 +59,9 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
   };
 
   return (
-    
-    <div style={{ height: "200vh" }}>
+
+    <div className="background-white" style={{ height: "200vh" }}>
+      
       <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
@@ -83,10 +85,26 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         color="blue-gray"
         className="mb-2 secondary-font-large header-text"
       >
-        {mode==="create" ? 'Your Capsule Preview' : "Emma's last act of love"}
+        {mode === "create" ? 'Your Capsule Preview' : "Emma's last act of love"}
       </Typography>
 
-      
+      {mode === 'create' ? 
+      <div className="p-5">
+        Dear Mom, 
+        <br /><br />
+        You are probably wondering what the heck this is?
+        Well. It is a digital capsule, and my last act of love to you.
+        <br /><br />
+        In it you will find the things we never spoke about or planned for. The necessary contact list and administrative favors and I need taken care of if something unexpected was to happen.
+        Most importantly it contains some of my favorite memories in the form of pictures, videos, and letters for you to download and hold on to forever.
+        <br /><br />
+        My hope was never for it to have reached you. But now that it has, I hope that it makes things a bit lighter and reminds you how much I love you.
+        <br /><br />
+        Much Love,<br />
+        Emma
+      </div>
+      : ''}
+
       <Typography
         variant="h2"
         color="blue-gray"
@@ -100,9 +118,9 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         style={{ objectFit: "cover" }}
       >
         {mode === "create" ? <Button onClick={handleDeleteTask} className="bg-transparent shadow-none delete-button">
-        <BsFillTrashFill/>
-      </Button> : ''}
-        
+          <BsFillTrashFill />
+        </Button> : ''}
+
         <Carousel id="tasks" slide={slideCarousel}>
           {capsuleNotes.map((note, index) => {
             return (
@@ -134,14 +152,14 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container-charity"
         style={{ objectFit: "cover" }}
       >
-        {mode === "create" ? 
+        {mode === "create" ?
           <Button
             onClick={handleDeleteCharity}
             className="bg-transparent shadow-none delete-button"
           >
-            <BsFillTrashFill/>
+            <BsFillTrashFill />
           </Button>
-        : ''}
+          : ''}
         <Carousel id="charities" slide={slideCarousel}>
           {capsuleGoodwill.map((goodwill, index) => {
             return (
@@ -175,7 +193,7 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         style={{ objectFit: "cover" }}
       >
         <Button onClick={handleDeleteMemory} className="bg-transparent shadow-none delete-button">
-          <BsFillTrashFill/>
+          <BsFillTrashFill />
         </Button>
         <Carousel id="memories" slide={false}>
           {capsulePhotos.map((url) => {
@@ -188,6 +206,7 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
           Delete this memory
         </Button> */}
       </div>
+      <BottomSlideOverMenu />
     </div>
   );
 };
