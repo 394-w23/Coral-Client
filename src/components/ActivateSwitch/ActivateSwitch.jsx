@@ -25,7 +25,7 @@ export default class ActivateSwitch extends Component {
 
             window.clearTimeout(tID);		// clear time out.
 
-        }, 250);
+        }, 1000);
     }
 
     
