@@ -97,7 +97,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteTask} className="bg-red-500  delete-button">
+        <Button
+          onClick={handleDeleteTask}
+          className="bg-red-500  delete-button"
+        >
           X
         </Button>
         <Carousel id="tasks" slide={slideCarousel}>
@@ -128,7 +131,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
+        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container-charity"
         style={{ objectFit: "cover" }}
       >
         <Button
@@ -175,7 +178,10 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
-        <Button onClick={handleDeleteMemory} className="bg-red-500 delete-button">
+        <Button
+          onClick={handleDeleteMemory}
+          className="bg-red-500 delete-button"
+        >
           X
         </Button>
         <Carousel id="memories" slide={false}>
