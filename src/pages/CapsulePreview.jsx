@@ -129,7 +129,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
       </Typography>
 
       <div
-        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
+        className=" h-96 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container-charity"
         style={{ objectFit: "cover" }}
       >
         <Button
