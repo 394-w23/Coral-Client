@@ -19,7 +19,7 @@ const TopNavBar = ({ color, nextLink, backLink }) => {
         <Menu>
           <MenuHandler>
             <a href="#" className="kebab">
-              <GoKebabVertical className="icon" />
+              <GoKebabVertical size={70} className="icon" />
             </a>
           </MenuHandler>
           <MenuList>

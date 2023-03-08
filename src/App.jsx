@@ -56,7 +56,7 @@ const App = () => {
       <Route
           path="/"
           element={
-              userLoggedIn ? <Navigate to="/capsuleGallery" />
+              userLoggedIn ? <Navigate to="/createCapsule" />
               : <Login users={data.users} setUser={setUserLoggedIn} />
           }
         ></Route>

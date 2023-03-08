@@ -1,14 +1,7 @@
-import Task from "../components/Task";
 import { useState } from "react";
-import { Button } from "@material-tailwind/react";
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
 const BottomSlideOverMenu = () => {
   const [isOpen, setIsOpen] = useState(true);
 
