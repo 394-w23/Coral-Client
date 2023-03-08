@@ -19,7 +19,7 @@ import TopNavBar from "../components/TopNavBar";
 import EditMemoriesModal from "../modals/EditMemoriesModal";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
 
-const CapsulePreview = ({ userData, capsuleData }) => {
+const CapsulePreview = ({ userData, capsuleData, mode }) => {
   const capsulePhotos = capsuleData.photoLinks.slice(1);
   const capsuleNotes = capsuleData.notes.slice(1);
   const capsuleGoodwill = capsuleData.goodwill.slice(1);
@@ -57,7 +57,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
 
   return (
     
-    <div className="background-white" style={{ height: "200vh" }}>
+    <div style={{ height: "200vh" }}>
       <DeleteMemoryModal
         showModal={deleteMemoryModal}
         onCloseModal={closeDeleteMemoryModal}
@@ -73,13 +73,13 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         onCloseModal={closeDeleteCharityModal}
         capsuleData={capsuleData}
         slideOn={slideOn} />
-      <TopNavBar nextLink={"/newCapsule"} backLink={"/createCapsule"} />
+      {mode === "create" ? <TopNavBar nextLink={"/newCapsule"} backLink={"/createCapsule"} /> : ''}
       <Typography
         variant="h1"
         color="blue-gray"
         className="mb-2 secondary-font-large header-text"
       >
-        Your Capsule Preview
+        {mode==="create" ? 'Your Capsule Preview' : "Emma's last act of love"}
       </Typography>
 
       <Typography
@@ -94,9 +94,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
         style={{ "objectFit": "cover" }}
       >
-        <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">
-          X
-        </Button>
+        {mode === "create" ? <Button onClick={handleDeleteMemory} className="bg-red-500 next-button">X</Button> : ''}
         <Carousel id="memories" slide={false}>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url} id="currentMemory"></img>;
@@ -121,9 +119,8 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
         style={{ "objectFit": "cover" }}
       >
-        <Button onClick={handleDeleteTask} className="bg-red-500 next-button">
-          X
-        </Button>
+        {mode === "create" ? <Button onClick={handleDeleteTask} className="bg-red-500 next-button">X</Button> : ''}
+        
         <Carousel id="tasks" slide={slideCarousel}>
           {capsuleNotes.map((note, index) => {
             return (
@@ -152,9 +149,7 @@ const CapsulePreview = ({ userData, capsuleData }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end"
         style={{ "objectFit": "cover" }}
       >
-        <Button onClick={handleDeleteCharity} className="bg-red-500 next-button">
-          X
-        </Button>
+        {mode === "create" ? <Button onClick={handleDeleteCharity} className="bg-red-500 next-button">X</Button> : ''}        
         <Carousel id="charities" slide={slideCarousel}>
           {capsuleGoodwill.map((goodwill, index) => {
             return (

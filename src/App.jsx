@@ -75,8 +75,14 @@ const App = () => {
         <Route
           path="/capsulePreview"
           element={
-            <CapsulePreview userData={user} capsuleData={userCapsule}></CapsulePreview>
-          }>
+            <CapsulePreview userData={user} capsuleData={userCapsule} mode="create"></CapsulePreview>
+          }>        
+        </Route>
+        <Route
+          path="/emmaslastactoflove"
+          element={
+            <CapsulePreview userData={user} capsuleData={userCapsule} mode="receive"></CapsulePreview>
+          }>          
         </Route>
         <Route
           path="/capsuleGallery"
