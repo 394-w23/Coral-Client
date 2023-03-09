@@ -4,7 +4,7 @@ import logo from "../../../public/new_capsule.png";
 import unlocked from "../../../public/unlocked.png";
 import locked from "../../../public/locked.png";
 
-let url = locked;
+let url = unlocked;
 
 export default class ActivateSwitch extends Component {
     constructor() {
@@ -14,7 +14,7 @@ export default class ActivateSwitch extends Component {
     }
 
     handleChange(checked) {
-        url = unlocked;
+        url = locked;
         this.setState({ checked });
         var base_url = window.location.origin;
         console.log(base_url);
