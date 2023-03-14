@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
+import { Navbar, Typography, IconButton } from "@material-tailwind/react";
 import { GoKebabVertical } from "react-icons/go";
-import {IoIosArrowBack} from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
 

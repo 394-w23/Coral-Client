@@ -1,15 +1,16 @@
-import logo from "../../public/new_capsule.png";
 import CapsuleGalleryCard from "../components/CapsuleGalleryCard";
 import { Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 
-
-const CapsuleGallery = ({data}) => { 
+const CapsuleGallery = ({ data }) => {
   const [capsules, setCapsules] = useState([]);
   useEffect(() => {
     const userId = "emmasuuid";
-    const currentCapsules = data.users[userId].capsules.slice(1);  
-    const newCapsules = currentCapsules.map(capsuleId => ({ id: capsuleId, ...data.capsules[capsuleId] }));
+    const currentCapsules = data.users[userId].capsules.slice(1);
+    const newCapsules = currentCapsules.map((capsuleId) => ({
+      id: capsuleId,
+      ...data.capsules[capsuleId],
+    }));
     setCapsules(newCapsules);
   }, [data]);
 
@@ -26,13 +27,12 @@ const CapsuleGallery = ({data}) => {
         <CapsuleGalleryCard
           key={capsule.id}
           name={capsule.name}
-          image = {capsule.photoLinks[1]}
+          image={capsule.photoLinks[1]}
           class="flex justify-center"
-        >
-        </CapsuleGalleryCard>
+        ></CapsuleGalleryCard>
       ))}
     </span>
   );
-}
+};
 
 export default CapsuleGallery;

@@ -12,28 +12,8 @@ import NewCapsule from "./pages/NewCapsule";
 import CapsulePreview from "./pages/CapsulePreview";
 import CapsuleGallery from "./pages/CapsuleGallery";
 import Login from "./pages/Login";
-import LandingPage from "./pages/LandingPage";  
+import LandingPage from "./pages/LandingPage";
 import "./App.css";
-
-
-
-
-
-
-
-
-//add useState for handling the image as a file and then the image as a url from firebase
-import storage from "../utilities/firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { useDbUpdate } from "../utilities/firebase";
-
-
-
-
-
-
-
-
 
 const App = () => {
   const [data, error] = useDbData("/"); // get whole database
@@ -42,8 +22,6 @@ const App = () => {
   if (data === undefined) return <h1>Loading data...</h1>;
   if (!data) return <h1>No data found</h1>;
 
-  const eventID = "thisisauuid122233woohoo";
-  const userID = "useruuidemma";
   // console.log("Data: ", data);
   const userCapsule = data.capsules.emmalovecapsuleuuid;
   const user = data.users.emmasuuid;
@@ -53,48 +31,56 @@ const App = () => {
   return (
     <Router>
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
-              userLoggedIn ? <Navigate to="/createCapsule" />
-              : <Login users={data.users} setUser={setUserLoggedIn} />
+            userLoggedIn ? (
+              <Navigate to="/createCapsule" />
+            ) : (
+              <Login users={data.users} setUser={setUserLoggedIn} />
+            )
           }
         ></Route>
         <Route
           path="/createCapsule"
           element={
-            <CreateCapsule userData={user} capsuleData={userCapsule}></CreateCapsule>
+            <CreateCapsule
+              userData={user}
+              capsuleData={userCapsule}
+            ></CreateCapsule>
           }
         ></Route>
-        <Route
-          path="/newCapsule"
-          element={
-            <NewCapsule></NewCapsule>
-          }
-        ></Route>
+        <Route path="/newCapsule" element={<NewCapsule></NewCapsule>}></Route>
         <Route
           path="/capsulePreview"
           element={
-            <CapsulePreview userData={user} capsuleData={userCapsule} mode="create"></CapsulePreview>
-          }>        
-        </Route>
+            <CapsulePreview
+              userData={user}
+              capsuleData={userCapsule}
+              mode="create"
+            ></CapsulePreview>
+          }
+        ></Route>
         <Route
           path="/emmaslastactoflove"
           element={
-            <CapsulePreview userData={user} capsuleData={userCapsule} mode="receive"></CapsulePreview>
-          }>          
-        </Route>
+            <CapsulePreview
+              userData={user}
+              capsuleData={userCapsule}
+              mode="receive"
+            ></CapsulePreview>
+          }
+        ></Route>
         <Route
           path="/capsuleGallery"
-          element={<CapsuleGallery data={data}></CapsuleGallery>}>
-        </Route>
+          element={<CapsuleGallery data={data}></CapsuleGallery>}
+        ></Route>
         <Route
           path="/landingPage"
-          element={<LandingPage data={data}></LandingPage>}>
-        </Route>
+          element={<LandingPage data={data}></LandingPage>}
+        ></Route>
       </Routes>
     </Router>
-  
   );
 };
 

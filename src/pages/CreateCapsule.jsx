@@ -1,36 +1,26 @@
-import Task from "../components/Task";
 import { useState } from "react";
-import { Button } from "@material-tailwind/react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
-import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation/Navigation";
+import { Typography } from "@material-tailwind/react";
 import AddInfo from "../components/AddInfo";
 import TopNavBar from "../components/TopNavBar";
 import selected from "../../public/templates.png";
 import unselected from "../../public/unselected.png";
-import "../App.css"
+import "../App.css";
 
 const CreateCapsule = ({ userData, capsuleData }) => {
   const [template, setTemplate] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const handleBarClick = () => {
-    if (!template){
+    if (!template) {
       setIsOpen(true);
     }
-    if (!isOpen){
+    if (!isOpen) {
       setTemplate(!template);
     }
-  }
+  };
 
   return (
     <div className="background-white" style={{ height: "120vh" }}>
-      <TopNavBar nextLink={'/capsulePreview'} />
+      <TopNavBar nextLink={"/capsulePreview"} />
       <Typography
         variant="h2"
         color="blue-gray"
@@ -39,12 +29,24 @@ const CreateCapsule = ({ userData, capsuleData }) => {
         Create your capsule
       </Typography>
       <div onClick={handleBarClick}>
-        <img className="template" src={template ? selected : unselected}></img>  
+        <img className="template" src={template ? selected : unselected}></img>
       </div>
       <div>
-        <AddInfo title={"memories"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"tasks"} userData={userData} capsuleData={capsuleData} />
-        <AddInfo title={"charities"} userData={userData} capsuleData={capsuleData} />        
+        <AddInfo
+          title={"memories"}
+          userData={userData}
+          capsuleData={capsuleData}
+        />
+        <AddInfo
+          title={"tasks"}
+          userData={userData}
+          capsuleData={capsuleData}
+        />
+        <AddInfo
+          title={"charities"}
+          userData={userData}
+          capsuleData={capsuleData}
+        />
       </div>
       <div
         className={`fixed inset-x-0 font-Sen bottom-0 bg-paleBlue p-4 h-5/6 rounded-t-3xl transform transition-transform ${
@@ -53,15 +55,15 @@ const CreateCapsule = ({ userData, capsuleData }) => {
       >
         <div className="flex flex-col justify-between h-full">
           <Typography variant="h5" className="flex justify-center h-screen">
-                  DISCLAIMER
+            DISCLAIMER
           </Typography>
           <div className="flex-grow">
             <div className="text-center">
               <Typography variant="paragraph">This is not a will.</Typography>
               <Typography variant="paragraph">
-                All memories, tasks, and charity information added to your capsule
-                are legally non-binding.
-                The Last Act Capsule does not replace a will.
+                All memories, tasks, and charity information added to your
+                capsule are legally non-binding. The Last Act Capsule does not
+                replace a will.
               </Typography>
             </div>
           </div>
@@ -80,7 +82,6 @@ const CreateCapsule = ({ userData, capsuleData }) => {
             </button>
           </div>
         </div>
-        
       </div>
     </div>
   );

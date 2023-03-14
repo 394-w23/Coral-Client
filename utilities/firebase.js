@@ -1,24 +1,7 @@
 import { initializeApp } from "firebase/app";
-// import firebase from "firebase/app";
 import { useCallback, useEffect, useState } from "react";
-import {
-  getDatabase,
-  connectDatabaseEmulator,
-  onValue,
-  ref,
-  update,
-} from "firebase/database";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-  signInWithRedirect,
-  signOut,
-  connectAuthEmulator,
-  signInWithCredential,
-} from "firebase/auth";
-import { getStorage, connectStorageEmulator } from "firebase/storage";
+import { getDatabase, onValue, ref, update } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgVg3iVvgnV3iAWlKvfdvDsUEmjcfUtMs",
@@ -30,7 +13,6 @@ const firebaseConfig = {
   appId: "1:708701666248:web:9fae4b5776c967259c1efd",
 };
 const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
 const database = getDatabase(firebaseApp);
 const storage = getStorage();
 

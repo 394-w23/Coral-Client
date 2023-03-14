@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Modal, Label, TextInput } from "flowbite-react";
+import { Modal, Label } from "flowbite-react";
 import { Button } from "@material-tailwind/react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useDbUpdate, useDbData } from "../../utilities/firebase";
 import storage from "../../utilities/firebase";
-import validator from "validator";
 
-const AddPhotoModal = ({ showModal, onCloseModal, userData, capsuleData }) => {
+const AddPhotoModal = ({ showModal, onCloseModal }) => {
   const [update] = useDbUpdate(`/`);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [data, error] = useDbData("/capsules/emmalovecapsuleuuid/photoLinks");

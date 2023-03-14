@@ -1,17 +1,9 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { useState } from "react";
-import logo from "../../public/new_capsule.png";
+import { Card, CardBody, Typography, Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
-const notify = () => toast("Link to \"Emma's Last Act of Love\" copied to clipboard!");
+const notify = () =>
+  toast('Link to "Emma\'s Last Act of Love" copied to clipboard!');
 
 const CapsuleGalleryCard = ({ name, image }) => {
   return (
@@ -24,11 +16,16 @@ const CapsuleGalleryCard = ({ name, image }) => {
           </Typography>
 
           <img src={image}></img>
-          <div className="flex justify-around">            
-            <Button className="primary-blue-background next-button" onClick={() => {
-              navigator.clipboard.writeText('https://coralclient-59585.web.app/emmaslastactoflove');
-              notify();
-              }}>
+          <div className="flex justify-around">
+            <Button
+              className="primary-blue-background next-button"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "https://coralclient-59585.web.app/emmaslastactoflove"
+                );
+                notify();
+              }}
+            >
               Share
             </Button>
             <Link to="/createCapsule">
@@ -36,9 +33,7 @@ const CapsuleGalleryCard = ({ name, image }) => {
                 Edit
               </Button>
             </Link>
-
           </div>
-
         </CardBody>
       </Card>
     </div>
