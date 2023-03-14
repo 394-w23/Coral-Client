@@ -88,7 +88,7 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         {mode === "create" ? 'Your Capsule Preview' : "Emma's last act of love"}
       </Typography>
 
-      {mode === 'create' ? 
+      {mode === 'receive' ? 
       <div className="p-5">
         Dear Mom, 
         <br /><br />
@@ -192,9 +192,11 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
         className=" h-80 sm:h-64 xl:h-80 2xl:h-96 overflow-hidden flex flex-col items-end container"
         style={{ objectFit: "cover" }}
       >
+        {mode === 'create' ? 
         <Button onClick={handleDeleteMemory} className="bg-transparent shadow-none delete-button">
           <BsFillTrashFill />
-        </Button>
+        </Button>  : ''
+        }
         <Carousel id="memories" slide={false}>
           {capsulePhotos.map((url) => {
             return <img src={url} key={url} id="currentMemory"></img>;
@@ -206,7 +208,7 @@ const CapsulePreview = ({ userData, capsuleData, mode }) => {
           Delete this memory
         </Button> */}
       </div>
-      <BottomSlideOverMenu />
+      {mode === 'receive' ? <BottomSlideOverMenu /> : ""}
     </div>
   );
 };
