@@ -1,0 +1,63 @@
+{
+  "capsules": {
+    "emmalovecapsuleuuid": {
+      "creator": "emmasuuid",
+      "goodwill": [
+        "",
+        {
+          "charityName": "Northwestern University Library",
+          "request": "Please donate all my books to the Northwestern University Library. I love the library and I hope that my books will be used by many students in the future. Thank you so much for your help!"
+        },
+        {
+          "charityName": "university libr",
+          "request": "send out books thank you"
+        }
+      ],
+      "name": "Emma's last act of love",
+      "notes": [
+        "",
+        {
+          "content": "Please cancel my Disney+, Hulu, AdobeInDesign, T-mobile account",
+          "title": "Cancel subscriptions/payments plans"
+        },
+        {
+          "content": "And don't forget to deactivate my social media accounts! Linkedin, Facebook, Instagram etc :( ",
+          "title": "Deactivate socials"
+        },
+        {
+          "content": "to my cousin",
+          "title": "give the dining table"
+        },
+        {
+          "content": "ASAP password xxxx",
+          "title": "get rid of adobe "
+        }
+      ],
+      "photoLinks": [
+        "",
+        "https://firebasestorage.googleapis.com/v0/b/coralclient-59585.appspot.com/o/files%2F852F3584-66A5-4DBC-ACD0-71FC333F9B82.jpeg?alt=media&token=30455bd6-7b82-4dfc-bdbd-f2c043928cec",
+        "https://firebasestorage.googleapis.com/v0/b/coralclient-59585.appspot.com/o/files%2FC87D2A3F-07F7-40E1-BA0D-6F615CFD0CF2.jpeg?alt=media&token=7506ddd7-5443-47ab-ad07-53bcae194d70",
+        "https://firebasestorage.googleapis.com/v0/b/coralclient-59585.appspot.com/o/files%2FEB1B942D-42EB-49D2-8824-954D440786EF.jpeg?alt=media&token=d26bb917-f901-44d8-bf92-476e71e62ef5",
+        "https://firebasestorage.googleapis.com/v0/b/coralclient-59585.appspot.com/o/files%2FIMG_7332.jpg?alt=media&token=8bbf0e81-f038-4ec9-bf4d-42af9d40f28c",
+        "https://firebasestorage.googleapis.com/v0/b/coralclient-59585.appspot.com/o/files%2FIMG_7336%202.jpg?alt=media&token=071fe5d4-d3cd-40cc-a9f3-80362faa7077"
+      ],
+      "shareLink": "defaultsharelink",
+      "template": "death",
+      "videoLinks": [
+        ""
+      ]
+    }
+  },
+  "users": {
+    "emmasuuid": {
+      "capsules": [
+        "",
+        "emmalovecapsuleuuid"
+      ],
+      "email": "emma@gmail.com",
+      "name": "Emma Leinsdorf",
+      "password": "password",
+      "phoneNumber": "911"
+    }
+  }
+}

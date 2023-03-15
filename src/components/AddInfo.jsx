@@ -1,30 +1,16 @@
 import { Fragment, useState } from "react";
 import { Button } from "@material-tailwind/react";
-// import {
-//   Card,
-//   CardHeader,
-//   CardBody,
-//   CardFooter,
-// } from "@material-tailwind/react";
 import { AiOutlinePicture } from "react-icons/ai";
 import { GrNotes } from "react-icons/gr";
 import { RiHandHeartLine } from "react-icons/ri";
 import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import AddNoteModal from "../modals/AddNoteModal";
 import AddPhotoModal from "../modals/AddPhotoModal";
 import AddVideoModal from "../modals/AddVideoModal";
 import AddGoodwillModal from "../modals/AddGoodwillModal";
-// import { SlArrowRight } from "react-icons/sl";
-// import { CgTemplate } from "react-icons/cg";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-
-const AddInfo = ({ title, userData, capsuleData}) => {
-  
+const AddInfo = ({ title, userData, capsuleData }) => {
   const [noteModalOpen, setNoteModalOpen] = useState(false);
   const openNoteModal = () => setNoteModalOpen(true);
   const closeNoteModal = () => setNoteModalOpen(false);
@@ -59,7 +45,7 @@ const AddInfo = ({ title, userData, capsuleData}) => {
     if (option === "New task") {
       openNoteModal();
     }
-    if (option === "New charity request") {    
+    if (option === "New charity request") {
       openGoodwillModal();
     }
   }
@@ -69,22 +55,26 @@ const AddInfo = ({ title, userData, capsuleData}) => {
         showModal={noteModalOpen}
         onCloseModal={closeNoteModal}
         userData={userData}
-        capsuleData={capsuleData} />
+        capsuleData={capsuleData}
+      />
       <AddPhotoModal
         showModal={photoModal}
         onCloseModal={closePhotoModal}
         userData={userData}
-        capsuleData={capsuleData} />
-      <AddGoodwillModal 
-        showModal={goodwillModal} 
-        onCloseModal={closeGoodwillModal} 
-        userData={userData} 
-        capsuleData={capsuleData} />
-      <AddVideoModal 
-        showModal={videoModal} 
-        onCloseModal={closeVideoModal} 
-        userData={userData} 
-        capsuleData={capsuleData} />
+        capsuleData={capsuleData}
+      />
+      <AddGoodwillModal
+        showModal={goodwillModal}
+        onCloseModal={closeGoodwillModal}
+        userData={userData}
+        capsuleData={capsuleData}
+      />
+      <AddVideoModal
+        showModal={videoModal}
+        onCloseModal={closeVideoModal}
+        userData={userData}
+        capsuleData={capsuleData}
+      />
       <div className="flex items-center">
         <div className="circle secondary-green-background center">
           {title === "memories" ? (

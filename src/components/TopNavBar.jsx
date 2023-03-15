@@ -5,12 +5,10 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-  Button,
 } from "@material-tailwind/react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { HiSparkles } from "react-icons/hi";
 import { BsQuestionLg } from "react-icons/bs";
-
 
 const TopNavBar = ({ color, nextLink, backLink }) => {
   return (
@@ -23,24 +21,34 @@ const TopNavBar = ({ color, nextLink, backLink }) => {
             </a>
           </MenuHandler>
           <MenuList>
-            <MenuItem><BsFillPersonFill className="nav-icon inline mr-1" size={1} /> Profile</MenuItem>
-            <MenuItem><HiSparkles className="nav-icon inline mr-1" size={1} /> Create</MenuItem>
-            <MenuItem><BsQuestionLg className="nav-icon inline mr-1" size={1} />Help</MenuItem>
+            <MenuItem>
+              <BsFillPersonFill className="nav-icon inline mr-1" size={1} />{" "}
+              Profile
+            </MenuItem>
+            <MenuItem>
+              <HiSparkles className="nav-icon inline mr-1" size={1} /> Create
+            </MenuItem>
+            <MenuItem>
+              <BsQuestionLg className="nav-icon inline mr-1" size={1} />
+              Help
+            </MenuItem>
           </MenuList>
         </Menu>
-        
-        {nextLink && 
-        <a href={`${nextLink}`} className="arrowBack">
-          <IoIosArrowForward className="icon" />
-        </a>}        
-        
-        {backLink && 
+
+        {nextLink && (
+          <a href={`${nextLink}`} className="arrowBack">
+            <IoIosArrowForward className="icon" />
+          </a>
+        )}
+
+        {backLink && (
           <a href={`${backLink}`} className="arrowBack">
-          <IoIosArrowBack className="icon" />
-        </a>}
+            <IoIosArrowBack className="icon" />
+          </a>
+        )}
       </div>
     </nav>
   );
-}
+};
 
 export default TopNavBar;
