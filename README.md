@@ -27,7 +27,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -36,7 +35,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-??
+Share all your best moments with your loved ones. MyCapsule organizes your most important details to guide your family and friends to celebrate your life and deliver messages into the future.
+
+### Who is it for?
+MyCapsule is designed for everyone far away from home with memories to share or tasks loved ones can complete on their behalf
+
+### Features 
+1. Curate a capsule of digital memories 
+2. Curate a contact list and set of instructions 
+3. Manage administrative tasks such as canceling subscriptions
+4. Assign key stakeholders to capsules
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -53,20 +61,18 @@ This is what we used to build the project.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
 Download all the requirements by running install as such:
 ```
   npm install
 ```
+Dependencies are listed in package.json for reference.
 
 ### Installation
 
 #### Step 1: Create a new project
-1. Go to [Firebase][https://console.firebase.google.com/u/0/project/_/database]
+1. Go to [Firebase](https://console.firebase.google.com/u/0/project/_/database)
 2. Follow instructions to create a new project
 
 #### Step 2: Create a realtime database
@@ -93,12 +99,19 @@ const firebaseConfig
 #### Step 5: Create a .env file
 1. Create a .env at the root of the project
 2. Copy this outline:
+
 API_KEY = 
+
 AUTH_DOMAIN = 
+
 DATABASE_URL = 
+
 PROJECT_ID = 
+
 STORAGE_BUCKET = 
+
 MESSAGING_SENDER_ID =
+
 APP_ID =
 3. Put the corresponding values from firebaseConfig into the .env
 
@@ -111,21 +124,6 @@ APP_ID =
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 ## License
 
@@ -135,7 +133,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/394-w23/Coral-Client?style=for-the-badge
 [contributors-url]: https://github.com/394-w23/Coral-Client/graphs/contributors
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/394-w23/Coral-Client/blob/main/LICENSE
