@@ -7,7 +7,7 @@
 
 <br />
 <div align="center">
-  <h3 align="center">MyCapsule README</h3>
+  <h1 align="center">MyCapsule README</h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -37,10 +37,10 @@
 
 Share all your best moments with your loved ones. MyCapsule organizes your most important details to guide your family and friends to celebrate your life and deliver messages into the future.
 
-### Who is it for?
-MyCapsule is designed for everyone far away from home with memories to share or tasks loved ones can complete on their behalf
+#### Who is it for?
+MyCapsule is designed for everyone far away from home with memories to share or tasks loved ones can complete on their behalf.
 
-### Features 
+#### Features 
 1. Curate a capsule of digital memories 
 2. Curate a contact list and set of instructions 
 3. Manage administrative tasks such as canceling subscriptions
@@ -50,7 +50,7 @@ MyCapsule is designed for everyone far away from home with memories to share or 
 
 ### Built With
 
-This is what we used to build the project.
+This is what we used to build the project:
 
 * [![React][React.js]][React-url]
 * [![Tailwind][tailwindcss]][tailwindcss-url]
@@ -71,23 +71,23 @@ Dependencies are listed in package.json for reference.
 
 ### Installation
 
-#### Step 1: Create a new project
+##### Step 1: Create a new project
 1. Go to [Firebase](https://console.firebase.google.com/u/0/project/_/database)
 2. Follow instructions to create a new project
 
-#### Step 2: Create a realtime database
+##### Step 2: Create a realtime database
 1. Go to 'Build'
 2. Click 'Realtime Database'
 3. Click 'Create Database'
 4. Follow the guidelines to create
 
-#### Step 3: Create storage
+##### Step 3: Create storage
 1. Go to 'Build'
 2. Click 'Storage'
 3. Click 'Get Started'
 4. Follow the guidelines to create
 
-#### Step 4: Get config information
+##### Step 4: Get config information
 1. Go to Project settings
 2. Click the web app logo under 'Add app'
 3. Add a name
@@ -96,7 +96,7 @@ Dependencies are listed in package.json for reference.
 const firebaseConfig 
 ``` 
 
-#### Step 5: Create a .env file
+##### Step 5: Create a .env file
 1. Create a .env at the root of the project
 2. Copy this outline:
 
@@ -113,14 +113,15 @@ STORAGE_BUCKET =
 MESSAGING_SENDER_ID =
 
 APP_ID =
+
 3. Put the corresponding values from firebaseConfig into the .env
 
-#### Step 6: Run the project
-1. To run the project, type 
+##### Step 6: Run the project
+1. To run the project, type into the terminal
 ```
   npm start
 ```
-2. Copy the link into your browser
+2. Copy the link provided into your browser
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
