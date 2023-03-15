@@ -15,9 +15,7 @@ import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import "./App.css";
 
-const App = () => {
-  console.log(process.env);
-
+const App = () => {    
   const [data, error] = useDbData("/"); // get whole database
   const [userLoggedIn, setUserLoggedIn] = useState();
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
